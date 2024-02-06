@@ -1,0 +1,46 @@
+@import '../../../../scss/color';
+.loginPage {
+    .card {
+        width: 350px;
+        max-width: 350px;
+        padding: 20px;
+        margin-bottom: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 6px;
+        box-shadow: $box-shadow-secondary;
+    }
+    .card-header {
+        padding: 0;
+        margin-bottom: 10px;
+        border: 0;
+        background-color: transparent;
+        box-shadow: none;
+        h1 {
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+    }
+    .card-body {
+        padding: 0;
+    }
+    .btnWrap {
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+    .option-2 {
+        button {
+            width: 100%;
+        }
+    }
+    .form-check {
+        .form-check-input {
+            margin-top: 0;
+        }
+        label {
+            color: $gray-8;
+        }
+    }
+}

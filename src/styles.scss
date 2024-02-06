@@ -1,0 +1,133 @@
+/* You can add global styles to this file, and also import other style files */
+.abc {
+    border: 1px solid #ced4da !important;
+    height: 27px !important;
+}
+@import "./scss/style.scss";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html,
+body {
+    height: 100%;
+}
+
+html {
+    position: relative;
+}
+
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: $font-primary;
+    font-size: 13px;
+    color: $text-color-primary;
+    line-height: normal;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #f4f4f4;
+}
+
+// .form-group {
+//     width: 100%;
+//     padding: 0px 20px;
+//     .mat-form-field {
+//         width: 48%;
+//         margin: 0px 10px;
+//     }
+//     .twoColumn {
+//         width: 45%;
+//         margin: 0px 10px;
+//     }
+//     .twoColumnWidth {
+//         width: 61.5%;
+//         margin: 0px 10px;
+//     }
+//     .fullWidth {
+//         width: 97%;
+//         margin: 0px 10px;
+//     }
+// }
+.p-hidden-accessible {
+    display: none !important;
+}
+
+.p-paginator {
+    text-align: left !important;
+}
+
+.card {
+    background: var(--surface-e);
+    padding: 2rem;
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+.cust-button .p-button {
+    background-color: #fff;
+    color: #0b7ad1 !important;
+    border: 1px solid #0b7ad1;
+    padding: 0.5rem 0rem 0.5rem 0.2rem;
+    line-height: 21px;
+    &:hover {
+        color: #fff !important;
+    }
+    &.primary {
+        background-color: #0b7ad1;
+        color: #fff !important;
+    }
+}
+
+.cust-button-primary .p-button {
+    line-height: 23px;
+}
+
+// new style added my jitendra
+.midContainer {
+    padding: 25px 40px;
+}
+
+.formWrap {
+    > .row {
+        margin-bottom: 15px !important;
+    }
+    .mat-form-field {
+        width: 100%;
+    }
+}
+
+.btnWrap {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .pTable {
+    overflow-x: auto;
+    display: block;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      white-space: nowrap;
+    }
+    td {
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      text-align: left;
+      padding: 8px;
+      background-color: #f2f2f2;
+    }
+    tr{
+      :nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      :hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+
+}

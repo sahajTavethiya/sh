@@ -1,0 +1,127 @@
+<mat-card-content *ngIf="requestForm" [formGroup]="requestForm">
+    <div class="tabBody">
+        <div class="row">
+            <div class="col-8">
+                <h2>Assigned Manpower <span
+                        class="text-b">({{requestForm.get('assignedManpowerList')?.value.length}})</span>
+                </h2>
+            </div>
+            <div class="col-4 btnWrap mb-2">
+                <p-button label="Add" icon="pi pi-plus"
+                    [disabled]="!requestForm.controls.assignedManpowerPermission.get('create')?.value" iconPos="left"
+                    (onClick)="addOpenAssignedManpower()"></p-button>
+            </div>
+        </div>
+        <p-table class="pTable" #openingTaskDetails [value]="requestForm.get('assignedManpowerList')?.value"
+            [paginator]="true" [alwaysShowPaginator]="false" [rows]="5" [rowsPerPageOptions]="[5,10,20]"
+            [totalRecords]="requestForm.get('assignedManpowerList')?.value.length" dataKey="id">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th id="header" pSortableColumn="isActive"> Is Active
+                        <p-sortIcon field="isActive"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="employeeName"> Employee Name
+                        <p-sortIcon field="employeeName"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="company"> Company
+                        <p-sortIcon field="company"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="service"> service
+                        <p-sortIcon field="service"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="mobile"> Mobile
+                        <p-sortIcon field="mobile"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="delete"> Delete
+                        <p-sortIcon field="delete"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-ri="rowIndex">
+                <tr *ngIf="!rowData.isDeleted">
+                    <td>
+                        <mat-checkbox [disabled]="isDisabled" [checked]="rowData.isActive" (change)="OpenAssignedManpoweredit($event,ri)">
+                        </mat-checkbox>
+                    </td>
+                    <td>{{ rowData.employeeName }}</td>
+                    <td>{{ rowData.companyName }} </td>
+                    <td>{{ rowData.serviceName }}</td>
+                    <td>{{ rowData.mobileNo }}</td>
+                    <td>
+                        <mat-icon class="icon"
+                            *ngIf="requestForm.controls.assignedManpowerPermission.get('delete')?.value"
+                            (click)="deleteAssignedManpower(rowData.id,ri)">delete</mat-icon>
+                    </td>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="6">No Record Found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="tabBody">
+        <div class="row">
+            <div class="col-8">
+                <h2>Manpower Task Time Details <span
+                        class="text-b">({{requestForm.get('manpowerTaskTimeList')?.value.length}})</span>
+                </h2>
+            </div>
+            <div class="col-4 btnWrap mb-2">
+                <p-button label="Add" icon="pi pi-plus"
+                    [disabled]="!requestForm.controls.manpowerTaskTimePermission.get('create')?.value" iconPos="left"
+                    (onClick)="addOpenManpowerTaskTimeDetails()">
+                </p-button>
+            </div>
+        </div>
+        <p-table class="pTable" #openingTaskDetails [value]="requestForm.get('manpowerTaskTimeList')?.value"
+            [paginator]="true" [alwaysShowPaginator]="false" [rows]="5" [rowsPerPageOptions]="[5,10,20]"
+            [totalRecords]="requestForm.get('manpowerTaskTimeList')?.value.length" dataKey="id">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th id="header" pSortableColumn="employeeName"> Employee Name
+                        <p-sortIcon field="employeeName"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="startTime"> Start Time
+                        <p-sortIcon field="startTime"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="endTime"> End Time
+                        <p-sortIcon field="endTime"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-ri="rowIndex">
+                <tr *ngIf="!rowData.isDeleted">
+                    <td>{{ rowData.employeeName }}</td>
+                    <td *ngIf="!requestForm.controls.manpowerTaskTimePermission.get('edit')?.value">
+                        {{this.service.Moment(rowData.startTime).format("MM-DD-YYYY h:mm a")}}</td>
+
+                    <td *ngIf="requestForm.controls.manpowerTaskTimePermission.get('edit')?.value">
+                        <div class="col-6">
+                            <input type="datetime-local" #ref (change)="ManpowerTaskTimeEdit(ref.value,ri,1)" class="form-control"  value="{{rowData.startTime}}">
+                        </div>
+                    </td>
+                    <td *ngIf="!requestForm.controls.manpowerTaskTimePermission.get('edit')?.value">
+                        {{this.service.Moment(rowData.endTime).format("MM-DD-YYYY h:mm a")}}</td>
+
+                    <td *ngIf="requestForm.controls.manpowerTaskTimePermission.get('edit')?.value">
+                        <div class="col-6">
+                            <input type="datetime-local" #ref1 min="{{rowData.startTime}}" (change)="ManpowerTaskTimeEdit(ref1.value,ri,2)" class="form-control" value="{{rowData.endTime}}">
+                        </div>
+                    </td>
+                    <!-- <td>
+                        {{rowData.endTime != null ? this.service.Moment(rowData.endTime).format("MM-DD-YYYY h:mm
+                        a") : ''}}
+                    </td> -->
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="3">No Record Found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</mat-card-content>

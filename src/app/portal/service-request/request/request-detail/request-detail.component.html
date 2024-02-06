@@ -1,0 +1,158 @@
+<mat-card-content *ngIf="RequestDetail" [formGroup]="RequestDetail" class="formWrap">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Service Group</label>
+                <p-dropdown [options]="serviceGroups" class="ui-input" optionValue="keyName" formControlName="serviceGroupId" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Service Name</label>
+                <p-dropdown [options]="serviceNames" class="ui-input" optionValue="keyName" formControlName="serviceId" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Mobile</label>
+                <p-inputMask mask="999-999-9999" formControlName="mobileNo" >
+                </p-inputMask>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Created Date</label>
+                <input type="date" formControlName="enquiryDate" name="enquiryDate" value="{{ RequestDetail.get('enquiryDate')?.value | date: 'dd-MM-yyyy' }}" id="enquiryDate" class="form-control" >
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Zone<span class="mandatoryField">*</span></label>
+                <p-dropdown [options]="zones"  class="ui-input" [ngClass]="{ 'is-invalid': RequestDetail.controls.cityId.touched 
+                && RequestDetail.controls.cityId.errors }" [required]="true" optionValue="keyName" formControlName="cityId" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Preferred Date<span class="mandatoryField">*</span></label>
+                <input type="date" formControlName="preferredDate" value="{{ RequestDetail.get('preferredDate')?.value | date: 'yyyy-MM-dd' }}" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Preferred Time</label>
+                <p-dropdown [options]="preferredTimes" class="ui-input" optionValue="keyName"  formControlName="preferredTime" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Service Status<span class="mandatoryField">*</span></label>
+                <p-dropdown [options]="serviceStatuses" class="ui-input" [ngClass]="{ 'is-invalid': RequestDetail.controls.enquiryStatus.touched 
+                && RequestDetail.controls.enquiryStatus.errors }" [required]="true" optionValue="keyName" formControlName="enquiryStatus" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group" *ngIf="replytype">
+                <label>Visit Remarks</label>
+                <textarea pInputText formControlName="delayReason" #delayReason required maxlength="70">
+                </textarea>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label>Priority</label>
+                <p-dropdown [options]="priorities" class="ui-input" optionValue="keyName" formControlName="priority" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <!-- <div class="col-4">
+            <div class="form-group">
+                <label>Client</label>
+                <p-dropdown [options]="clients" class="ui-input" optionValue="keyName" formControlName="serviceFor" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div> -->
+        
+    </div>
+<div class="row" *ngIf="ShowCompetedBy">
+    <div class="col-4">
+        <div class="form-group">
+            <label>Completed By : </label>
+            <!-- <p-dropdown [options]="employeeNames" formControlName="stageModifiedBy" class="ui-input" [required]="true" optionValue="keyName"  optionLabel="displayText" [placeholder]="completedByname">
+            </p-dropdown> -->
+
+            <p-dropdown appendTo="body"  [filter]="true"  [options]="employeeNames"  formControlName="stageModifiedBy" class="ui-input"
+            optionValue="keyName" optionLabel="displayText" [placeholder]="completedByname" placeholder="-Select-">
+
+            <ng-template let-employeeNames pTemplate="item">
+                <div class="country-item">
+                    <div>{{employeeNames.displayText}}</div>
+                </div>
+            </ng-template>
+            </p-dropdown>
+        </div>
+
+    </div> 
+    <!-- <div class="col-4">
+    <button style="margin-top :20Px">save</button>
+    </div> -->
+</div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Calling Remarks</label>
+                <textarea pInputText formControlName="description" class="form-control" #description  maxlength="70">
+                </textarea>
+                <mat-hint>({{description.value.length || 0}}/70)</mat-hint>
+            </div>
+        </div>
+    </div>
+    
+        <div class="row" *ngIf="MDPEDisabled" >
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Pressure Gauge Make</label>
+                    <input pInputText class="form-control" formControlName="pressureGuageMake" />
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Pressure Gauge No</label>
+                    <input pInputText class="form-control" formControlName="pressureGuageMakeNo" />
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="MDPEDisabled" >
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Gauge calibration validity From </label>
+                    <input type="date" formControlName="gaugeCalibrationValidityFromDate" class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Gauge calibration validity To </label>
+                    <input type="date" formControlName="gaugeCalibrationValidityFromTo" class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Holding Time </label>
+                    <input type="time" formControlName="holdingTime" class="form-control">
+                </div>
+            </div>
+        </div>
+</mat-card-content>

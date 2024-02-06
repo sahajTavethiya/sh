@@ -1,0 +1,95 @@
+
+<p-dialog header="Add File" [position]="'right'"  [style]="{width: '20vw'}" [modal]="true"
+[baseZIndex]="-100" [draggable]="false" [resizable]="false" styleClass="searchDialog">
+<form  [formGroup]="addForm" (ngSubmit)="saveNotes()" class="formWrap">
+    <div class="row">
+        <div class="col-12">
+            <!-- <div class="form-group">
+                <label>Isometric Graph Image :</label>
+                <input type="file" formControlName="files" (change)="onFileSelected($event)" class="form-control">
+            </div> -->
+        </div>
+    </div>
+
+    <div class="btnWrap">
+        <div>
+            <button type="submit" mat-button color="primary">Upload</button>
+        </div>
+    </div>
+</form>
+
+</p-dialog>
+<section class="manageServiceRequestPage">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add Order</h1>
+        </div>
+    </div>
+    <form *ngIf="requestForm" [formGroup]="requestForm">
+        <div class="row">
+            <!-- <div class="col-12 col-md-8 requestFormDataWrap">
+                <label>Customer ID: </label>
+                <label>Status:</label>
+                <label>SR Number:</label>
+                <label>Zone:</label>
+                <label>Client:</label>
+            </div> -->
+            <div class="col-12 col-md-4">
+                <!-- <div class="btnWrap">
+                    <button mat-button [matMenuTriggerFor]="menu" color="primary">
+                        More Options <mat-icon>arrow_right</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="requestsLists();">Requests Lists</button>
+                        <button mat-menu-item (click)="generatePDF();">Generate PDF</button>
+                        <button mat-menu-item [disabled]="requestForm.disabled" (click)="callRecordingUpload();">Call Recording Upload</button>
+                        <button mat-menu-item [disabled]="requestForm.disabled" (click)="uploadCustomerSignature()">Upload Customer Signature</button>
+                        <button mat-menu-item [disabled]="requestForm.disabled" (click)="changeStatus();">Change
+                            Status/Send for Approval</button>
+                        <button mat-menu-item [disabled]="requestForm.disabled" (click)="cancelRequest();">Cancel Request</button>
+                    </mat-menu> &nbsp;
+                    <button type="button" mat-button color="primary" (click)="viewImage()">View Documents
+                        ({{requestForm.get('documentList')?.value.length}})</button>
+                </div> -->
+            </div>
+
+        </div>
+        <!-- <div class="row text-medium my-3">
+            <div class="col-md-12 text-right"></div>
+        </div> -->
+
+         <div class="row">
+            <div class="col-12">
+                <mat-tab-group>
+
+
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            Basic Details
+                        </ng-template>
+                        <ng-template matTabContent>
+                            <mat-card>
+                                <app-basic-detail-of-order [requestForm]="requestForm" [lookups] = "OrderReportDetailLookups">
+                                </app-basic-detail-of-order>
+                            </mat-card>
+                        </ng-template>
+                    </mat-tab>
+                   
+                    
+                  
+                </mat-tab-group>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="btnWrap mt-4">
+                            <button mat-button color="secondary" type="button" (click)="onCancel();"
+                                >Cancel</button>
+                                <!-- [disabled]="requestForm.disabled" -->
+                            <button mat-button color="primary" type="submit" (click)="onSave();"
+                                >Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

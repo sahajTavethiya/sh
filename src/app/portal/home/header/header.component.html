@@ -1,0 +1,68 @@
+<header class="header-right" *ngIf="userName">
+    <div class="dropdown manageProfile">
+        <a class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Welcome: {{userName}}
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <li>
+                <a (click)="changePassword()" class="dropdown-item">
+                    <i aria-hidden="true" class="fas fa-user"></i> Change Password
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item" (click)="logout()">
+                    <i aria-hidden="true" class="fas fa-sign-out"></i> Logout</a>
+            </li>
+        </ul>
+    </div>
+    <div class="dropdown settingMenu">
+        <a style="cursor: pointer;" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <mat-icon>settings</mat-icon>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <li class="parentMenu"><i class="fa fa-user" aria-hidden="true"></i> Master Data Management</li>
+            <li>
+                <a style="cursor: pointer;" (click)="oldAppClick('COMPANYMASTER')" class="dropdown-item"><i class="fa fa-list-alt" aria-hidden="true"></i> Company
+                </a>
+            </li>
+            <li>
+                <a style="cursor: pointer;" (click)="oldAppClick('SERVICEFORMASTER')" class="dropdown-item"><i class="fa fa-list-alt" aria-hidden="true"></i> Manage Client
+                </a>
+            </li>
+            <li>
+                <a style="cursor: pointer;" (click)="oldAppClick('SERVICEMASTER')" class="dropdown-item"><i class="fa fa-list-alt" aria-hidden="true"></i> Service Master
+                </a>
+            </li>
+            <li>
+                <a style="cursor: pointer;" (click)="oldAppClick('SERVICECATEGORY')" class="dropdown-item"><i class="fa fa-list-alt" aria-hidden="true"></i> Service Category
+                </a>
+            </li>
+            <li>
+                <a style="cursor: pointer;" (click)="oldAppClick('SUBCATEGORY')" class="dropdown-item"><i class="fa fa-list-alt" aria-hidden="true"></i> Service Sub Category
+                </a>
+            </li>
+            <li>
+                <a style="cursor: pointer;" (click)="oldAppClick('MATERIALCATEGORY')" class="dropdown-item"><i class="fa fa-list-alt" aria-hidden="true"></i> Material Category
+                    Master
+                </a>
+            </li>
+            <li>
+                <a style="cursor: pointer;" (click)="oldAppClick('MATERIALMASTER')" class="dropdown-item"><i class="fa fa-list-alt" aria-hidden="true"></i> Material Master
+                </a>
+            </li>
+            <li>
+                <a style="cursor: pointer;" (click)="oldAppClick('LOCALITYMASTER')" class="dropdown-item"><i class="fa fa-list-alt" aria-hidden="true"></i> Control Room Master
+                </a>
+            </li>
+            <li class="parentMenu mt-2"><i class="fa fa-user-plus" aria-hidden="true"></i> User Management</li>
+            <li>
+                <a style="cursor: pointer;" (click)="oldAppClick('MANAGEUSER')" class="dropdown-item"><i class="fa fa-list-alt" aria-hidden="true"></i> Manage User
+                </a>
+            </li>
+            <li>
+                <a style="cursor: pointer;" (click)="oldAppClick('MANPOWER')" class="dropdown-item"><i class="fa fa-list-alt" aria-hidden="true"></i> Manpower Master
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>

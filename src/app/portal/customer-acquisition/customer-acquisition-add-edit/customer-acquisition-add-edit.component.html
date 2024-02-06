@@ -1,0 +1,66 @@
+<section class="manageServiceRequestPage">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Customer Acquisition Details</h1>
+        </div>
+    </div>
+    <form *ngIf="requestForm" [formGroup]="requestForm">
+        
+        <!-- <div class="row text-medium my-3">
+            <div class="col-md-12 text-right"></div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-12">
+                <mat-tab-group>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            Customer Acquisition Details
+                        </ng-template>
+                        <ng-template matTabContent>
+                            <mat-card>
+                                <app-acquisition-details [requestId]="requestId" [requestForm]="requestForm"
+                                    [lookups]="requestDetailLookups">
+                                </app-acquisition-details>
+                            </mat-card>
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            Customer LPG Connection Details
+                        </ng-template>
+                        <ng-template matTabContent>
+                            <mat-card>
+                                <app-customer-lpgconnection-details [requestId]="requestId" [requestForm]="requestForm" 
+                                [lookups]="requestDetailLookups">
+                                </app-customer-lpgconnection-details>
+                            </mat-card>
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            Payment Details
+                        </ng-template>
+                        <ng-template matTabContent>
+                            <mat-card>
+                                <app-payment-details [requestId]="requestId" [requestForm]="requestForm" 
+                                [lookups]="requestDetailLookups">
+                                </app-payment-details>
+                            </mat-card>
+                        </ng-template>
+                    </mat-tab>
+                   
+                </mat-tab-group>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="btnWrap mt-4">
+                            <button mat-button color="secondary" type="button" (click)="onCancel();">Cancel</button>
+                            <button mat-button color="primary" type="submit" (click)="onSave();">Submit</button>
+                            <button *ngIf="requestId != 0" mat-raised-button color="warn" type="submit" (click)="onReject();">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,137 @@
+<mat-card-content *ngIf="RequestDetail" [formGroup]="RequestDetail" class="formWrap" style="height: 300px;">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Worker Name :</label>
+                <!-- <input type="text" formControlName="billNo"> -->
+                <input pInputText class="form-control" formControlName="Name"/>
+                <!-- <p-dropdown [options]="WorkTypeArray" class="ui-input" optionValue="KeyName" formControlName="WorkTypeId" optionLabel="DisplayText" placeholder="-Select-">
+                </p-dropdown> -->
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Email : </label>
+                <input pInputText class="form-control" formControlName="EmailId"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Password : </label>
+                <input pInputText class="form-control" formControlName="Password"/>
+            </div>
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-4">
+        <div class="form-group">
+            <label>Role : </label>
+            <p-dropdown [options]="RoleMaster" class="ui-input" optionValue="KeyName" formControlName="RoleId" optionLabel="DisplayText" placeholder="-Select-">
+            </p-dropdown>
+                
+            <!-- <p-dropdown [options]="serviceNames" class="ui-input" optionValue="keyName" formControlName="serviceId" optionLabel="displayText" placeholder="-Select-">
+            </p-dropdown> -->
+        </div>
+    </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>BirthDate : </label>
+                <input type="date" formControlName="BirthDate" class="form-control">
+                    
+                <!-- <p-dropdown [options]="serviceNames" class="ui-input" optionValue="keyName" formControlName="serviceId" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown> -->
+            </div>
+        </div>
+         <div class="col-4">
+            <div class="form-group">
+                <label>Active :<span class="mandatoryField">*</span></label>
+                <p-dropdown [options]="ActiveMaster"  class="ui-input" [required]="true" optionValue="KeyName" formControlName="IsActive" optionLabel="DisplayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <!-- <div class="col-4">
+            <div class="form-group">
+                <label>Total Item<span class="mandatoryField">*</span></label>
+                <input pInputText class="form-control" formControlName="TotalItem"/>
+            </div>
+        </div> -->
+    </div>
+    <!-- <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>User Name<span class="mandatoryField">*</span></label>
+                <input pInputText class="form-control" formControlName="AmountPerOneItem"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>BillNo<span class="mandatoryField">*</span></label>
+                <input pInputText class="form-control" formControlName="BillNo"/>
+            </div>
+        </div>
+ 
+        <div class="col-4">
+            <div class="form-group">
+                <label>Status</label>
+                <p-dropdown [options]="StatusMaster" class="ui-input" optionValue="KeyName" formControlName="StatusId" optionLabel="DisplayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div> 
+        
+    </div> -->
+    <div class="row">
+        <!-- <div class="col-4">
+            <div class="form-group">
+                <label>Client</label>
+                <p-dropdown [options]="clients" class="ui-input" optionValue="keyName" formControlName="serviceFor" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div> -->
+        
+    </div>
+    <!-- <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Calling Remarks</label>
+                <textarea pInputText formControlName="description" class="form-control" #description  maxlength="70">
+                </textarea>
+                <mat-hint>({{description.value.length || 0}}/70)</mat-hint>
+            </div>
+        </div>
+    </div> -->
+    
+        <!-- <div class="row"  >
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Pressure Gauge Make</label>
+                    <input pInputText class="form-control" formControlName="pressureGuageMake" />
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Pressure Gauge No</label>
+                    <input pInputText class="form-control" formControlName="pressureGuageMakeNo" />
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="row" *ngIf="MDPEDisabled" >
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Gauge calibration validity From </label>
+                    <input type="date" formControlName="gaugeCalibrationValidityFromDate" class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Gauge calibration validity To </label>
+                    <input type="date" formControlName="gaugeCalibrationValidityFromTo" class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Holding Time </label>
+                    <input type="time" formControlName="holdingTime" class="form-control">
+                </div>
+            </div>
+        </div> -->
+</mat-card-content>

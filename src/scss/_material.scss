@@ -1,0 +1,101 @@
+.mat-tab-group {
+    font-family: $font-primary;
+    .mat-tab-nav-bar,
+    .mat-tab-header {
+        border-bottom: 1px solid $tab-color-primary;
+    }
+    .mat-tab-body-wrapper {
+        padding: 20px 15px;
+        border: 1px solid $tab-color-primary;
+        border-top: none;
+        background-color: #fff;
+        box-shadow: $box-shadow-secondary;
+    }
+    .mat-tab-body {
+        .mat-card-content {
+            >div {
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .mat-tab-link {
+        font-family: $font-primary;
+        font-size: 13px;
+        color: #000;
+        opacity: 1;
+    }
+    .mat-tab-label {
+        font-family: $font-primary;
+        font-size: 13px;
+        font-weight: normal;
+        padding: 0 20px;
+        margin-right: 10px;
+        min-width: 60px;
+        height: 35px;
+        background-color: $gray-1;
+        opacity: 1;
+        box-shadow: $box-shadow-secondary;
+        &:hover,
+        &.mat-tab-label-active {
+            color: $tab-color-primary;
+            background-color: #fff;
+        }
+    }
+}
+
+.mat-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button {
+    font-family: $font-primary;
+    font-size: 13px;
+    font-weight: normal;
+    height: auto !important;
+    line-height: 36px !important;
+    padding: 0 12px !important;
+    min-width: 40px !important;
+}
+
+.mat-button {
+    .mat-icon {
+        font-size: 17px;
+        width: 17px;
+        height: 17px;
+        line-height: 1rem;
+    }
+    &.mat-primary {
+        color: #fff;
+        background-color: $btn-primary;
+        &:hover {
+            background-color: $btn-primary-hover;
+        }
+    }
+    &.mat-secondary {
+        color: $btn-secondary;
+        border: 1px solid $btn-secondary;
+        &:hover {
+            color: #fff;
+            background-color: $btn-secondary;
+        }
+    }
+}
+
+.mat-drawer-container {
+    width: 100%;
+    background-color: transparent;
+    overflow: initial !important;
+    .mat-drawer-content {
+        top: 60px;
+        height: calc(100% - 60px) !important;
+    }
+}
+
+.formWrap {
+    input {
+        &.mat-chip-input {
+            width: 100%;
+            margin: 0;
+            display: block;
+        }
+    }
+}

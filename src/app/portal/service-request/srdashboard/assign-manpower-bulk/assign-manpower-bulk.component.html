@@ -1,0 +1,53 @@
+<div class="mat-dialog-title">Assigned Manpower</div>
+<mat-dialog-content>
+    <p-table class="pTable selectManpower" #openingTaskDetails [value]="getSRAvailableManpower" dataKey="id">
+        <ng-template pTemplate="header" let-columns>
+            <tr class="searchTr">
+                <th id="header"> 
+                </th>
+                <th id="header"> EmployeeCode
+                </th>
+                <th id="header"> EmployeeName
+                </th>
+                <th id="header"> ServiceName
+                </th>
+                <th id="header"> Mobile
+                </th>
+                <th id="header"> Zone
+                </th>
+                <th id="header"> Location
+                </th>
+                <th id="header"> Assignments
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+            <tr *ngIf="!rowData.isDeleted" class="searchTr">
+
+                <td>
+                    <mat-checkbox [checked]='rowData.isSelect'  (change)="onChkChildChange($event,rowData.employeeCode)"></mat-checkbox>
+                </td>
+                <td>{{ rowData.employeeCode }}</td>
+                <td>{{ rowData.employeeName }}</td>
+                <td>{{ rowData.serviceName }}</td>
+                <td>{{ rowData.mobile }}</td>
+                <td> {{ rowData.serviceCities }}</td>
+                <td>{{ rowData.worklocations }}</td>
+                <td>{{ rowData.assignements }}</td>
+
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="6">No Record Found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="btnWrap">
+        <button mat-button color="secondary" (click)="cancel()">Cancel</button>
+        <button mat-button color="primary" (click)="addAssignedManpower()">Submit</button>
+    </div>
+</mat-dialog-actions>

@@ -1,0 +1,66 @@
+<mat-card-content *ngIf="RequestDetail" [formGroup]="RequestDetail" class="formWrap" style="margin-bottom: 100px;">
+    <div class="row" >
+        <div class="col-4">
+            <div class="form-group">
+                <label>Customer Name :</label>
+                <input pInputText class="form-control" formControlName="customerName" />
+            </div>
+        </div>
+        <div class="col-4" *ngIf="selectedWorkType == 1">
+            <div class="form-group">
+                <label>EmailId : </label>
+                <input pInputText class="form-control" formControlName="emailId" />
+            </div>
+        </div>
+        <div class="col-4" *ngIf="selectedWorkType == 1">
+            <div class="form-group">
+                <label>Address : </label>
+                <input pInputText class="form-control" formControlName="address" />
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="selectedWorkType == 1">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Mobile : </label>
+                <input pInputText class="form-control" formControlName="mobile" />
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>GST_No :<span class="mandatoryField">*</span></label>
+                <input pInputText class="form-control" formControlName="gstNo" />
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>State & Code<span class="mandatoryField">*</span></label>
+                <input pInputText class="form-control" formControlName="stateAndCode" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>GST<span class="mandatoryField">*</span></label>
+                <section class="example-section">
+                    <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+                  </section>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>BillNo<span class="mandatoryField">*</span></label>
+                <input pInputText class="form-control" formControlName="BillNo" />
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Status</label>
+                <p-dropdown [options]="StatusMaster" class="ui-input" optionValue="KeyName" formControlName="StatusId"
+                    optionLabel="DisplayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+</mat-card-content>

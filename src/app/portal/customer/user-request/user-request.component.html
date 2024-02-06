@@ -1,0 +1,147 @@
+<mat-card-content class="formWrap" [formGroup]="RequestDetail">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Empolyee Name*</label>
+                <input type="text" formControlName="firstName" name="FirstName" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Father Name*</label>
+                <input type="text" formControlName="fatherName" name="fatherName" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <!-- <div class="form-group">
+                <label>Mobile</label>
+                <p-inputMask mask="999-999-9999" formControlName="mobileNo" >
+                </p-inputMask>
+            </div> -->
+            <label>ESI Code:</label>
+            <input type="text" formControlName="ESICode" name="ESICode" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>PF Code:</label>
+                <input type="text" formControlName="PFCode" name="PFCode" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Password* :</label>
+            <input type="password" formControlName="Password" name="Password" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Confirm Password* :</label>
+                <input type="password" formControlName="ConfirmPassword" name="ConformPassword" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- <div class="col-4">
+            <div class="form-group">
+                <label>Mobile No :</label>
+                <p-inputMask mask="999-999-9999" formControlName="Mobile">
+                </p-inputMask>
+            </div>
+        </div>
+        <div class="col-4">
+            <label>ContactNo :</label>
+            <input type="text" formControlName="ContactNo" name="ContactNo" class="form-control">
+        </div> -->
+        <div class="col-4">
+            <label>status* :</label>
+            <p-dropdown [options]="status" class="ui-input" optionValue="Id" formControlName="IsActive" optionLabel="displayText" placeholder="-Select-">
+            </p-dropdown>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Zone* :</label>
+                <p-dropdown [options]="Zone" class="ui-input" optionValue="zoneId" formControlName="zoneId" optionLabel="zoneName" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Role* :</label>
+                <p-dropdown [options]="Role" class="ui-input" optionValue="id" formControlName="RoleID" optionLabel="roleName" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>AadhaarNo* :</label>
+                <input type="text" formControlName="AadhaarNo" name="AadhaarNo" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>PanNo :</label>
+            <input type="text" formControlName="PanNo" name="PanNo" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Qualification :</label>
+                <input type="text" formControlName="Qualification" name="Qualification" class="form-control">
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>AadhaarNo :</label>
+                <input type="text" formControlName="AadhaarNo" name="AadhaarNo" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>PanNo :</label>
+            <input type="text" formControlName="PanNo" name="PanNo" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Qualification :</label>
+                <input type="text" formControlName="Qualification" name="Qualification" class="form-control">
+            </div>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Area served :</label>
+                <input type="text" formControlName="worklocations" name="worklocations" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Years Of Experience :</label>
+            <input type="text" formControlName="YearsOfExperience" name="YearsOfExperience" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Remark :</label>
+                <input type="text" formControlName="Remark" name="Remark" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>GovtIdCardFile* :</label>
+                <input type="file" (change)="onFileSelected($event,'GovtIdCard')" formControlName="GovtIdCardFile" name="GovtIdCardFile" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Appointment Letter File :</label>
+            <input type="file"  (change)="onFileSelected($event,'AppointmentLetter')" formControlName="AppointmentLetterFile" name="AppointmentLetterFile" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Joining Form File :</label>
+                <input type="file" (change)="onFileSelected($event,'JoiningForm')"  formControlName="JoiningFormFile" name="JoiningFormFile" class="form-control">
+            </div>
+        </div>
+    </div>
+</mat-card-content>

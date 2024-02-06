@@ -1,0 +1,107 @@
+.dcards {
+    display: flex;
+    .card {
+        // width: 300px;
+        // background-color: #fff;
+        // height: 130px;
+        // margin: 0px 10px;
+        // padding: 20px !important;
+        // transition: all 0.25s ease;
+        // font-size: 14px;
+        .card-header {
+            color: #2d668e;
+            font-weight: 600;
+            background-color: transparent;
+            border: none;
+            padding: 0px;
+        }
+        .dashIcon {
+            display: inline;
+            font-size: 18px;
+            padding: 10px;
+            color: #fff;
+        }
+        .huText1 {
+            font-size: 20px;
+        }
+    }
+}
+.huText1 {
+    font-size: 20px;
+}
+.charts {
+    margin: 20px 10px 10px 10px;
+    display: flex;
+    .right-chart {
+        margin-left: 20px;
+        width: 500px;
+        display: flex;
+        justify-content: start;
+    }
+    .longRight-chart {
+        margin-left: 20px;
+        width: 810px;
+    }
+    .card {
+        margin-bottom: 0px;
+    }
+}
+.apexcharts-title-text {
+    background-color: #2d668e !important;
+}
+.zoneTable {
+    ::ng-deep .p-datatable {
+        .p-datatable-thead tr th {
+            background-color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            border-bottom: 1px solid #000;
+        }
+        .p-datatable-tbody tr td {
+            font-size: 14px;
+        }
+    }
+}
+tr {
+    th,
+    td {
+        // width: 80px;
+        text-align: center;
+        &:nth-child(1) {
+            width: auto;
+            text-align: left;
+        }
+        // &:nth-child(2) {
+        // }
+        // &:nth-child(3) {
+        //     width: 100px;
+        //     text-align: right;
+        // }
+        // &:nth-child(4) {
+        //     width: 100px;
+        //     text-align: right;
+        // }
+    }
+}
+.dashboardControls {
+    display: flex;
+    justify-content: end;
+    .formControl {
+        width: 240px;
+        padding-left: 0px;
+        ::ng-deep .p-multiselect,
+        ::ng-deep .p-dropdown {
+            width: 100% !important;
+            border-radius: 20px;
+        }
+        ::ng-deep .p-multiselect .p-multiselect-label {
+            padding: 0px !important;
+        }
+        ::ng-deep .p-multiselect .p-multiselect-label.p-placeholder {
+            color: #000;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+        // #6c757d
+    }
+}

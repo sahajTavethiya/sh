@@ -1,0 +1,136 @@
+<mat-card-content class="formWrap" [formGroup]="RequestDetail">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" formControlName="EmailId" name="EmailId" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Mobile No*: </label>
+                <input type="text" formControlName="Mobile" name="Mobile" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <!-- <div class="form-group">
+                <label>Mobile</label>
+                <p-inputMask mask="999-999-9999" formControlName="mobileNo" >
+                </p-inputMask>
+            </div> -->
+            <label>Contact No:</label>
+            <input type="text" formControlName="ContactNo" name="ContactNo" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>House No:</label>
+                <input type="text" formControlName="HouseNo" name="HouseNo" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Street Locatlity :</label>
+            <input type="text" formControlName="StreetLocatlity" name="StreetLocatlity" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>BlockTower :</label>
+                <input type="text" formControlName="BlockTower" name="BlockTower" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Pin Code :</label>
+                <input type="text" formControlName="PinCode" name="PinCode" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>City :</label>
+            <p-dropdown [options]="AllCity" class="ui-input" optionValue="cityId" formControlName="CityId" optionLabel="cityName" placeholder="-Select-">
+            </p-dropdown>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>State :</label>
+                <p-dropdown [options]="AllState" class="ui-input" optionValue="stateId" formControlName="StateId" optionLabel="stateName" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Country :</label>
+                <p-dropdown [options]="AllCountry" class="ui-input" optionValue="countryId" formControlName="CountryId" optionLabel="countryName" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <!-- <div class="col-4">
+            <label>PanNo :</label>
+            <input type="text" formControlName="PanNo" name="PanNo" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Qualification :</label>
+                <input type="text" formControlName="Qualification" name="Qualification" class="form-control">
+            </div>
+        </div> -->
+    </div>
+    <!-- <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>AadhaarNo :</label>
+                <input type="text" formControlName="AadhaarNo" name="AadhaarNo" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>PanNo :</label>
+            <input type="text" formControlName="PanNo" name="PanNo" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Qualification :</label>
+                <input type="text" formControlName="Qualification" name="Qualification" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Area served :</label>
+                <input type="text" formControlName="worklocations" name="worklocations" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Years Of Experience :</label>
+            <input type="text" formControlName="YearsOfExperience" name="YearsOfExperience" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Remark :</label>
+                <input type="text" formControlName="Remark" name="Remark" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>GovtIdCardFile :</label>
+                <input type="file" formControlName="GovtIdCardFile" name="GovtIdCardFile" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Appointment Letter File :</label>
+            <input type="file" formControlName="AppointmentLetterFile" name="AppointmentLetterFile" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Joining Form File :</label>
+                <input type="file" formControlName="JoiningFormFile" name="JoiningFormFile" class="form-control">
+            </div>
+        </div>
+    </div> -->
+</mat-card-content>

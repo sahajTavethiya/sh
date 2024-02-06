@@ -1,0 +1,60 @@
+<Section class="loginPage row justify-content-center" *ngIf="isType == 1">
+    <div class="card">
+        <div class="card-header">
+            <h1>Login</h1>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="loginForm" class="formWrap">
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput formControlName="email" placeholder="Username" required>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput type="password" formControlName="password" placeholder="Password" required>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" formControlName="rememberMe" type="checkbox">
+                        <label class="form-check-label">Remember me</label>
+                    </div>
+                </div>
+                <div class="row option-2 mt-3">
+                    <div class="col-12 text-center mb-2">
+                        <button mat-button color="primary" (click)="login()">Login</button>
+                    </div>
+                    <div class="col-12 text-center">
+                        <a class="d-block small" (click)="ForgotPassword(2)">Forgot Password?</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</Section>
+
+<Section class="loginPage row justify-content-center" *ngIf="isType == 2">
+    <div class="card">
+        <div class="card-header">
+            <h1>Forgot Password</h1>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="forgotPasswordForm" class="formWrap">
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput formControlName="username" placeholder="Username" required>
+                    </mat-form-field>
+                </div>
+                <div class="row option-2 mt-3">
+                    <div class="col-12 text-center mb-2">
+                        <button mat-button color="primary" (click)="forgotPasswordSubmit()">Submit</button>
+                    </div>
+                    <div class="col-12 text-center">
+                        <a (click)="ForgotPassword(1)" class="d-block small">Back to Login?</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</Section>

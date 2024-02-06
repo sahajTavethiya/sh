@@ -1,0 +1,179 @@
+<mat-card-content *ngIf="CustomerAcquisitionDetail" [formGroup]="CustomerAcquisitionDetail" class="formWrap">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Title</label>
+                <p-dropdown appendTo="body" [options]="TitleArr" class="ui-input" optionValue="keyName" formControlName="titleID" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Customer Name</label>
+                <input type="text" formControlName="customerName"  class="form-control" placeholder="Customer Name" >
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Father's/Husband's Name</label>
+                <p-dropdown appendTo="body" [options]="CustomerNameTypeArr" class="ui-input" optionValue="keyName" formControlName="fatherHusbandNameID" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Father's/Husband's Name</label>
+                <input type="text" formControlName="fatherHusbandName"  class="form-control" placeholder="Father's/Husband's Name">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>House No.</label>
+                <input type="text" formControlName="houseNo"  class="form-control" placeholder="House No">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Floor</label>
+                <input type="text" formControlName="floor"  class="form-control" placeholder="Floor">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Street/Area/Society</label>
+                <input type="text" formControlName="streetAreaSociety"  class="form-control" placeholder="Street/Area/Society">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>State</label>
+                <p-dropdown appendTo="body" [options]="StateArr" class="ui-input" optionValue="keyName" formControlName="stateID" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>City</label>
+                <p-dropdown appendTo="body" [options]="filteredCityArr" class="ui-input" optionValue="keyName" formControlName="cityID" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Zone</label>
+                <p-dropdown appendTo="body" [options]="filteredZoneMasterArr" class="ui-input" optionValue="keyName" formControlName="zoneId" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Pincode</label>
+                <input type="text" formControlName="pincode"  class="form-control" placeholder="Pincode">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>AadhaarNo</label>
+                <input type="text" formControlName="aadhaarNo"  class="form-control" placeholder="Aadhaar No">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>MobileNo</label>
+                <p-inputMask mask="9999999999" formControlName="mobile" >
+                </p-inputMask>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>ContactNo</label>
+                <p-inputMask mask="9999999999" formControlName="contactNo" ></p-inputMask>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Type Of Ownership</label>
+                <p-dropdown appendTo="body" [options]="OwnershipType" class="ui-input" optionValue="keyName" formControlName="typeOfOwnershipID" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" formControlName="emailID"  class="form-control" placeholder="Email">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>RegistrationForm1</label>
+                <!-- formControlName="recordingFile" -->
+                <input type="file" formControlName="registrationFilename1" class="form-control"  accept="image/png, image/gif, image/jpeg"  id="file1" (change)="RegistrationForm1FileInput($event)">
+                <a (click)= "viewCustomerDocuments(requestForm.controls.request.get('registrationFilename1Old')?.value);" style="color: #0a86dc; cursor: pointer;">{{requestForm.controls.request.get('registrationFilename1Old')?.value}}</a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>RegistrationForm2</label>
+                <input type="file" formControlName="registrationFilename2" class="form-control"  accept="image/png, image/gif, image/jpeg"  id="file2" (change)="RegistrationForm2FileInput($event)">
+                <a (click)= "viewCustomerDocuments(requestForm.controls.request.get('registrationFilename2Old')?.value);" style="color: #0a86dc; cursor: pointer;">{{requestForm.controls.request.get('registrationFilename2Old')?.value}}</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="col-4">
+            <div class="form-group">
+                <label>PhotoID</label>
+                <input type="file" formControlName="photoIDFilename" class="form-control"  accept="image/png, image/gif, image/jpeg"  id="file3" (change)="PhotoIDFileInput($event)">
+                <a (click)= "viewCustomerDocuments(requestForm.controls.request.get('photoIDFilenameOld')?.value);" style="color: #0a86dc; cursor: pointer;">{{requestForm.controls.request.get('photoIDFilenameOld')?.value}}</a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>AddressProof</label>
+                <input type="file" formControlName="addressProofFilename" class="form-control"  accept="image/png, image/gif, image/jpeg"  id="file4" (change)="AddressProofFileInput($event)">
+                <a (click)= "viewCustomerDocuments(requestForm.controls.request.get('addressProofFilenameOld')?.value);" style="color: #0a86dc; cursor: pointer;">{{requestForm.controls.request.get('addressProofFilenameOld')?.value}}</a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>ManPower</label>
+                <p-dropdown appendTo="body" [options]="ManPowerArr" class="ui-input" optionValue="keyName" formControlName="employeeId" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>  
+    <div class="row">
+        
+        <div class="col-4">
+            <div class="form-group">
+                <label>BP No.</label>
+                <input type="text" formControlName="customerID"  class="form-control" placeholder="BP No.">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>FormNo</label>
+                <input type="text" formControlName="formNo"  class="form-control" placeholder="FormNo">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>&nbsp;</label>
+                &nbsp;
+            </div>
+        </div>
+    </div>  
+</mat-card-content>

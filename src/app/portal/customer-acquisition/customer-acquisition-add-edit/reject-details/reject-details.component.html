@@ -1,0 +1,20 @@
+<div>
+    <div class="mat-dialog-title" >Reject Details</div>
+    <mat-dialog-content>
+        <form *ngIf="rejectDetailsForm" [formGroup]="rejectDetailsForm" class="formWrap">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Reject Details<span class="mandatoryField">*</span></label>
+                        <input type="text" formControlName="reject" class="form-control" required  [ngClass]="{ 'is-invalid  ng-dirty': rejectDetailsForm.controls.reject.touched && rejectDetailsForm.controls.reject.errors }" [required]="true" id="file">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <div class="btnWrap">
+            <button mat-button color="secondary" (click)="cancel()">Cancel</button>
+            <button mat-button color="primary" (click)="addRejectDetails()">Submit</button>
+        </div>
+    </mat-dialog-actions>

@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-12">
+        <mat-tab-group>
+
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    User Details
+                </ng-template>
+                <ng-template matTabContent>
+                    <mat-card>
+                        <!-- <app-request-detail [requestId]="requestId" [requestForm]="requestForm"
+                            [lookups]="requestDetailLookups" [obj]="obj">
+                        </app-request-detail> -->
+                        <app-user-request [requestForm]="requestForm" ></app-user-request>
+                    </mat-card>
+                </ng-template>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    Contact Details
+                </ng-template>
+                <ng-template matTabContent>
+                    <mat-card>
+                        <app-add-user-contact-detail [requestForm]="requestForm">
+                        </app-add-user-contact-detail>
+                    </mat-card>
+                </ng-template>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    Bank Details
+                </ng-template>
+                <ng-template matTabContent>
+                    <mat-card>
+                        <app-user-bank-detail  [requestForm]="requestForm"></app-user-bank-detail>
+                    </mat-card>
+                </ng-template>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    Contractor Employee
+                </ng-template>
+                <ng-template matTabContent>
+                    <mat-card>
+                        <app-contractor-employee  [requestForm]="requestForm"></app-contractor-employee>
+                    </mat-card>
+                </ng-template>
+            </mat-tab>
+        </mat-tab-group>
+        <div class="row">
+            <div class="col-12">
+                <div class="btnWrap mt-4">
+                    <button mat-button color="secondary" type="button" (click)="onCancel();"
+                        [disabled]="requestForm.disabled">Cancel</button>
+                    <button mat-button color="primary" type="submit" (click)="onSave();"
+                        [disabled]="requestForm.disabled">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

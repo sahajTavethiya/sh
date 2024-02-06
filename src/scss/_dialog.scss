@@ -1,0 +1,69 @@
+.mat-dialog-container {
+    padding: 0 !important;
+    .mat-dialog-title {
+        color: #fff;
+        padding: 5px 15px;
+        margin-bottom: 10px;
+        background-color: $dialog-head-color;
+    }
+    .mat-dialog-content {
+        padding: 5px 15px;
+        margin: 0;
+        .formWrap {
+            >div {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .mat-dialog-actions {
+        padding: 2px 15px;
+        margin: 0;
+        border-top: 1px solid $gray-2;
+        .btnWrap {
+            width: 100%;
+        }
+    }
+}
+
+.p-dialog {
+    &.p-component {
+        font-family: $font-primary;
+        font-size: 13px;
+    }
+    .p-dialog-header {
+        color: $gray-8;
+        padding: 5px 15px;
+        background-color: $dialog-head-color;
+    }
+    .p-dialog-content {
+        padding: 5px 15px;
+        margin: 0;
+        .formWrap {
+            >div {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .p-dialog-footer {
+        padding: 2px 15px;
+        margin: 0;
+        border-top: 1px solid $gray-2;
+        .btnWrap {
+            width: 100%;
+        }
+    }
+    &.searchDialog {
+        max-height: 75%;
+    }
+}
+
+.searchDialog {
+    .chipContainer {
+        margin-top: 2px;
+        border: 1px solid $form-element-border-color;
+        padding: 6px;
+        max-height: 100px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}

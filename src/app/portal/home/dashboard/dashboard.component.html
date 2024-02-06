@@ -1,0 +1,271 @@
+<section class="dashboardsPage">
+
+    <div class="row">
+        <div class="col-lg-2 col-md-12">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="col-lg-10 col-md-12">
+            <form [formGroup]="dashboardForm">
+                <div class="row dashboardControls">
+                    <div class="formControl pt-4 pb-3">
+                        <p-multiSelect [options]="zones" formControlName="zoneIds" appendTo="body"
+                            optionLabel="displayText" optionValue="keyName" placeholder="All Zones"></p-multiSelect>
+                    </div>
+                    <div class="formControl pt-4 pb-3">
+                        <p-multiSelect class="formControl" [options]="services" formControlName="serviceIds"
+                            appendTo="body" optionLabel="displayText" optionValue="keyName" placeholder="All Services">
+                        </p-multiSelect>
+                    </div>
+                    <div class="formControl pt-4 pb-3">
+                        <p-dropdown [options]="dateRanges" class="formControl" optionValue="keyName"
+                            formControlName="dateString" optionLabel="displayText">
+                        </p-dropdown>
+                    </div>
+                    <div class="formControl">
+                      <div class="form-group">
+                        <label>Date From</label>
+                        <input type="date" formControlName="fromDate" class="formControl"  style="margin-top: 6px;">
+                        </div>
+                  </div>
+                  <div class="formControl">
+                    <label>Date To</label>
+                    <input type="date" formControlName="toDate" class="formControl" style="margin-top: 6px;">
+              </div>
+                    <div class="formControl pt-4 pb-3">
+                        <p-dropdown [options]="clients" class="formControl" optionValue="keyName"
+                            formControlName="clientId" optionLabel="displayText">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-6 dcards">
+      <a (click)="service_requests(null)">
+        <div class="col">
+          <div class="card radius-10" style="cursor: pointer;">
+            <div class="card-body">
+              <div class="d-flex align-items-center justify-content-between ">
+                <h5 class="mb-0 text-primary">{{ statuses.ALL }}</h5>
+                <p class="dashIcon sbg1Color">
+                  <i class="fa fa-fw fa-list"></i>
+                </p>
+              </div>
+              <div class="my-2">
+                <mat-divider></mat-divider>
+              </div>
+              <div class="d-flex align-items-center">
+                <p class="mb-0">ALL SERVICE REQUESTS</p>
+              </div>
+            </div>
+          </div>
+      </div>
+      </a>
+      <a (click)="service_requests(['6','5'])">
+        <div class="col">
+            <div class="card radius-10" style="cursor: pointer;">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between ">
+                  <h5 class="mb-0 text-primary sbg2Color">{{ statuses.UNASSIGNED }}</h5>
+                  <p class="dashIcon sbg2Color">
+                    <i class="fa fa-fw fa-external-link"></i>
+                  </p>
+                </div>
+                <div class="my-2">
+                  <mat-divider></mat-divider>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0"> UNASSIGNED</p>
+                </div>
+              </div>
+            </div>
+        </div>
+        </a>
+        <a (click)="service_requests(['2'])">
+        <div class="col">
+            <div class="card radius-10" style="cursor: pointer;">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between ">
+                  <h5 class="mb-0 text-primary sbg4Color">{{ statuses.ASGN }}</h5>
+                  <p class="dashIcon sbg4Color">
+                    <i class="fa fa-fw fa-user-plus"></i>
+                  </p>
+                </div>
+                <div class="my-2">
+                  <mat-divider></mat-divider>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0"> ASSIGNED</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </a>
+      <a (click)="service_requests(['25','3'])">
+        <div class="col">
+            <div class="card radius-10" style="cursor: pointer;">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between ">
+                  <h5 class="mb-0 text-primary sbg5Color">{{ statuses.INPROGRESS }}</h5>
+                  <p class="dashIcon sbg5Color">
+                    <i class="fa fa-fw fa-spinner"></i>
+                  </p>
+                </div>
+                <div class="my-2">
+                  <mat-divider></mat-divider>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0">  IN PROGRESS</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </a>
+      <a (click)="service_requests(['21','24','26'])">
+        <div class="col">
+            <div class="card radius-10" style="cursor: pointer;">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between ">
+                  <h5 class="mb-0 text-primary sbg8Color">{{ statuses.COMPLETED1 }}</h5>
+                  <p class="dashIcon sbg8Color">
+                    <i class="fa fa-fw fa-thumbs-up"></i>
+                  </p>
+                </div>
+                <div class="my-2">
+                  <mat-divider></mat-divider>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0">  COMPLETED</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </a>
+      <a (click)="service_requests(['4'])">
+        <div class="col">
+            <div class="card radius-10" style="cursor: pointer;">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between ">
+                  <h5 class="mb-0 text-primary sbg4Color">{{ statuses.NWORK }}</h5>
+                  <p class="dashIcon sbg4Color">
+                    <i class="fas fa-times-circle"></i>
+                  </p>
+                </div>
+                <div class="my-2">
+                  <mat-divider></mat-divider>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0">NON-WORKABLE</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </a>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12 col-lg-8 col-sm-12">
+            <div class=" card  radius-10">
+                <div class="card-body">
+                    <apx-chart *ngIf="lineColumnChartOptions" [series]="lineColumnChartOptions.series"
+                        [chart]="lineColumnChartOptions.chart" [xaxis]="lineColumnChartOptions.xaxis"
+                        [title]="lineColumnChartOptions.title" [yaxis]="lineColumnChartOptions.yaxis"
+                        [stroke]="lineColumnChartOptions.stroke" [dataLabels]="lineColumnChartOptions.dataLabels"
+                        [labels]="lineColumnChartOptions.labels">
+                    </apx-chart>
+                </div>
+        </div>
+        </div>
+       <div class=" col-md-12 col-lg-4 col-sm-12 display-flex">
+            <div class="card radius-10 w-100">
+                <div class="card-body">
+
+                    <apx-chart *ngIf="donutChartOptions" [series]="donutChartOptions.series" [chart]="donutChartOptions.chart"
+                        [xaxis]="donutChartOptions.xaxis" [title]="donutChartOptions.title" [labels]="donutChartOptions.labels"
+                        [responsive]="donutChartOptions.responsive">
+                    </apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class="card radius-10 p-3">
+                <div class="">
+                  <div class="row">
+                    <div class="col-8 card-heading">
+                      <h2>Zone Wise Count
+                      </h2>
+                    </div>
+                  </div>
+<!--                    <div class="tabBody table-responsive">-->
+<!--                        <p-table class="zoneTable table table-hover align-items-center" #dt [value]="zonewiseSRs" sortMode="single">-->
+<!--                            <ng-template pTemplate="header" let-columns>-->
+<!--                                <tr>-->
+<!--                                    <th>Zone</th>-->
+<!--                                    <th>All SRs</th>-->
+<!--                                    <th>Completed</th>-->
+<!--                                    <th>In Progress</th>-->
+<!--                                    <th>Non-workable</th>-->
+<!--                                    <th>Pending</th>-->
+<!--                                </tr>-->
+<!--                            </ng-template>-->
+<!--                            <ng-template pTemplate="body" let-rowData let-ri="rowIndex">-->
+<!--                                <tr>-->
+<!--                                    <td>{{rowData.cityName}}</td>-->
+<!--                                    <td>{{rowData.wappr + rowData.appr + rowData.asgn + rowData.inprg + rowData.wcomp +  rowData.rcomp + rowData.fcomp}}</td>-->
+<!--                                    <td>{{rowData.wcomp + rowData.fcomp}}</td>-->
+<!--                                    <td>{{rowData.inprg + rowData.delay}}</td>-->
+<!--                                    <td>{{rowData.nwork + 0}}</td>-->
+<!--                                    <td>{{rowData.appr + rowData.asgn + rowData.wappr}}</td>-->
+<!--                                </tr>-->
+<!--                            </ng-template>-->
+<!--                        </p-table>-->
+<!--                    </div>-->
+                  <div class="table-responsive">
+                    <table class="table table-hover align-items-center">
+                      <thead class="table-light">
+                      <tr>
+                        <th>Zone</th>
+                        <th>All SRs</th>
+                        <th>Completed</th>
+                        <th>In Progress</th>
+                        <th>Non-workable</th>
+                        <th>Pending</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let rowData of zonewiseSRs">
+                        <td>{{rowData.cityName}}</td>
+                        <td>{{rowData.wappr + rowData.appr + rowData.asgn + rowData.inprg + rowData.wcomp +  rowData.rcomp + rowData.fcomp +rowData.delay +rowData.nwork}}</td>
+                        <td>{{rowData.wcomp + rowData.fcomp +rowData.rcomp }}</td>
+                        <td>{{rowData.inprg + rowData.delay}}</td>
+                        <td>{{rowData.nwork + 0}}</td>
+                        <td>{{rowData.appr + rowData.asgn + rowData.wappr}}</td>
+                      </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+
+       </div>
+       <div class="col-md-12 col-lg-6 display-flex">
+            <div class="card radius-10 w-100">
+                <div class="card-body">
+                    <apx-chart *ngIf="lineChartOptions" [series]="lineChartOptions.series" [chart]="lineChartOptions.chart"
+                        [xaxis]="lineChartOptions.xaxis" [title]="lineChartOptions.title" [legend]="lineChartOptions.legend"
+                        [dataLabels]="lineChartOptions.dataLabels">
+                    </apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

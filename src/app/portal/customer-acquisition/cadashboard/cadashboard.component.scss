@@ -1,0 +1,119 @@
+@import "../../../../scss/color";
+#test ::ng-deep .mat-form-field-hide-placeholder .mat-form-field-label-wrapper {
+   text-align: center;
+   top: -25px;
+}
+
+#test ::ng-deep .mat-form-field-should-float {
+   text-align: center;
+}
+.search {
+   .p-inputtext {
+      width: 200px !important;
+      border-color: #b5b0b0;
+      margin-right: 10px;
+      line-height: 32px;
+   }
+   .searchHeader {
+      padding: 10px 10px 0px 0px;
+      .criteria {
+         float: left;
+         width: 95%;
+         align-items: self-start;
+      }
+   }
+   .searchTable {
+      background-color: #fff;
+      padding: 20px 0px;
+      min-height: 400px;
+   }
+   .requestFormDataWrap {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 4px 0 10px 0px;
+      label,
+      div {
+         display: inline-block;
+         padding: 0px 10px;
+         border: 1px solid $color-yellow-primary;
+         background-color: #fff;
+         line-height: 46px;
+      }
+      label {
+         background-color: $color-yellow-primary;
+         line-height: 44px;
+      }
+      div {
+         margin-right: 20px;
+         line-height: 38px;
+         width: 93%;
+      }
+      .chipContainer {
+         //border: 1px solid #ced4da;
+         padding: 6px;
+         max-height: 84px;
+         min-height: 46px;
+         overflow-x: hidden;
+         overflow-y: auto;
+      }
+   }
+}
+
+tr.searchTr {
+   th,
+   td {
+      width: 400px;
+      &:nth-child(1) {
+         width: 120px;
+      }
+      &:nth-child(2) {
+         width: 120px;
+      }
+      &:nth-child(3) {
+         width: 120px;
+      }
+      &:nth-child(4) {
+         width: 133px;
+      }
+      &:nth-child(5) {
+         width: 120px;
+      }
+      &:nth-child(6) {
+         width: 120px;
+      }
+      &:nth-child(7) {
+         width: 150px;
+      }
+      &:nth-child(8) {
+         width: 150px;
+      }
+      &:nth-child(9) {
+         width: 133px;
+      }
+      &:nth-child(10) {
+         width: 200px;
+      }
+      &:nth-child(11) {
+         width: 200px;
+      }
+      &:nth-child(12) {
+         width: 200px;
+      }
+      &:nth-child(13) {
+         width: 133px;
+      }
+      &:nth-child(14) {
+         width: 120px;
+      }
+      &:nth-child(15) {
+         width: 120px;
+      }
+      &:nth-child(16) {
+         width: 85px;
+      }
+      &:nth-child(17) {
+         width: 60px;
+      }
+   }
+}

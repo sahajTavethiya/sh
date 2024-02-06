@@ -1,0 +1,55 @@
+<!--  -->
+<mat-card-content [formGroup]="requestForm" *ngIf="requestForm">
+    <div class="tabBody">
+        <div class="row">
+            <div class="col-8">
+                <h2>Order assign <span class="text-b">(0)</span>
+                </h2>
+            </div>
+            <div class="col-4 btnWrap mb-2">
+                <!-- [disabled]="(!requestForm.controls.spareAndConsumablePermission.get('create')?.value)"v -->
+                <p-button label="Add" icon="pi pi-plus" iconPos="left" (onClick)="addOpenSparesConsumables()">
+                </p-button>
+            </div>
+        </div>
+        <!-- -->
+        <p-table class="pTable" #openingTaskDetails [paginator]="true"  [value]="requestForm.get('request')?.value"  [alwaysShowPaginator]="false" [rows]="5"
+            [rowsPerPageOptions]="[5,10,20]" [totalRecords]="5" dataKey="id">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th id="header" pSortableColumn="materialId"> ManagerName
+                        <p-sortIcon field="materialId"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="materialName"> QTY
+                        <p-sortIcon field="materialName"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="subCategory"> Rate
+                        <p-sortIcon field="subCategoryName"></p-sortIcon>
+                    </th>
+                    <th id="header"> Action
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-ri="rowIndex">
+                <tr *ngIf="!rowData.isDeleted">
+                    <td>{{ rowData.assignEmployeeName }}</td>
+                    <td>{{ rowData.assignTotalPiece }}</td>
+                    <td>{{rowData.workRatePerPiece}}</td>
+                    <!-- <td>{{rowData.materialAddedOn == null
+                        ?"":this.service.Moment(rowData.materialAddedOn).format("MM-DD-YYYY
+                        h:mm a")}}</td> -->
+                    <td>
+                        <!-- *ngIf="requestForm.controls.spareAndConsumablePermission.get('delete')?.value" -->
+                        <mat-icon class="icon" (click)="deleteSparesConsumables(ri)">delete</mat-icon>
+                    </td>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="7">No Record Found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</mat-card-content>

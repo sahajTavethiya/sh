@@ -1,0 +1,84 @@
+<div class="mat-dialog-title">Add Spares & Consumables</div>
+<mat-dialog-content>
+    <form *ngIf="sparesConsumablesForm" [formGroup]="sparesConsumablesForm" class="formWrap">
+        <div class="row">            
+            <div class="col-6">
+            <div class="form-group">
+                <label>Item Name</label>
+                <p-dropdown appendTo="body"  [options]="materialMaster" [filter]="true" filterBy="materialName"class="ui-input" [ngClass]="{ 'is-invalid  ng-dirty': sparesConsumablesForm.controls.id.touched 
+                && sparesConsumablesForm.controls.id.errors }" [required]="true" formControlName="id"
+                    optionLabel="materialName" placeholder="-Select-">
+                </p-dropdown>
+                <!-- <p-dropdown appendTo="body"  [options]="materialMaster" class="ui-input" [ngClass]="{ 'is-invalid  ng-dirty': sparesConsumablesForm.controls.itemCode.touched 
+                && sparesConsumablesForm.controls.itemCode.errors }" [required]="true" formControlName="itemCode"
+                    optionLabel="materialName" placeholder="-Select-">
+                </p-dropdown> -->
+            </div>
+        </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Service Sub Category</label>
+                    <p-dropdown appendTo="body"  [options]="serviceSubCategories"  class="ui-input"   formControlName="subCategoryId"
+                        optionLabel="subCategory" placeholder="-Select-">
+                    </p-dropdown>
+                    <!-- <p-dropdown appendTo="body"  [options]="materialMaster" class="ui-input" [ngClass]="{ 'is-invalid  ng-dirty': sparesConsumablesForm.controls.itemCode.touched 
+                    && sparesConsumablesForm.controls.itemCode.errors }" [required]="true" formControlName="itemCode"
+                        optionLabel="materialName" placeholder="-Select-">
+                    </p-dropdown> -->
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <!-- <p-inputText formControlName="quantity" [ngClass]="{ 'is-invalid  ng-dirty': sparesConsumablesForm.controls.quantity.touched 
+                    && sparesConsumablesForm.controls.quantity.errors }" [required]="true">
+                    </p-inputText> -->
+                    <input pInputText formControlName="quantity" class="form-control" required [ngClass]="{ 'is-invalid  ng-dirty': sparesConsumablesForm.controls.quantity.touched 
+                    && sparesConsumablesForm.controls.quantity.errors }" [required]="true">
+                </div>
+            </div>
+        </div>
+        <div>
+            <p style="color: red;">{{errorMsg}}</p>
+        </div>
+        
+        <!-- <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Unit</label>
+                    <input pInputText class="form-control" formControlName="unit" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Cost</label>
+                    <input pInputText class="form-control" formControlName="cost" />
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <p-inputNumber formControlName="quantity" [ngClass]="{ 'is-invalid  ng-dirty': sparesConsumablesForm.controls.quantity.touched 
+                    && sparesConsumablesForm.controls.quantity.errors }" [required]="true">
+                    </p-inputNumber>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Price</label>
+                    <p-inputNumber formControlName="salePrice" mode="currency" currency="INR"
+                        locale="en-IN"></p-inputNumber>
+                </div>
+            </div>
+        </div> -->
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="btnWrap">
+        <button mat-button color="secondary" (click)="cancel()">Cancel</button>
+        <button mat-button color="primary" (click)="addSparesConsumables()">Submit</button>
+    </div>
+</mat-dialog-actions>

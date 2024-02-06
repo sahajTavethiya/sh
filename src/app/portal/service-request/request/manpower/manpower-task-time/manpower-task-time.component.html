@@ -1,0 +1,28 @@
+<div class="mat-dialog-title">Add Manpower Task Time</div>
+<mat-dialog-content>
+    <form *ngIf="manpowerTaskTimeForm" [formGroup]="manpowerTaskTimeForm" class="formWrap">
+        <div class="row">
+            <div class="col-6">
+                <label>Employee</label>
+                    <p-dropdown appendTo="body" [options]="EmployeeArr"  class="ui-input"
+                        [ngClass]="{ 'is-invalid  ng-dirty': manpowerTaskTimeForm.controls.employeeId.touched 
+                    && manpowerTaskTimeForm.controls.employeeId.errors }" [required]="true" formControlName="employeeId"
+                        optionLabel="employeeName" placeholder="-Select-">
+                    </p-dropdown>
+            </div>
+            <div class="col-6">
+                <label>Start Time<span class="mandatoryField">*</span></label>
+                <input type="datetime-local" formControlName="startTime" class="ui-input"
+                [ngClass]="{ 'is-invalid  ng-dirty': manpowerTaskTimeForm.controls.startTime.touched 
+            && manpowerTaskTimeForm.controls.startTime.errors }" [required]="true" class="form-control" >
+              
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="btnWrap">
+        <button mat-button color="secondary" (click)="cancel()">Cancel</button>
+        <button mat-button color="primary" (click)="addManpowerTaskTime()">Submit</button>
+    </div>
+</mat-dialog-actions>

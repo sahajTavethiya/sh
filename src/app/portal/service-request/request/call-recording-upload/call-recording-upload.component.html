@@ -1,0 +1,80 @@
+<div>
+    <div class="mat-dialog-title" >Call Details</div>
+    <mat-dialog-content>
+        <form *ngIf="callRecordingUploadForm" [formGroup]="callRecordingUploadForm" class="formWrap">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>SR Number<span class="mandatoryField">*</span></label>
+                        <input pInputText formControlName="enquiryID" class="form-control" required 
+                        [ngClass]="{ 'is-invalid  ng-dirty': callRecordingUploadForm.controls.enquiryID.touched && callRecordingUploadForm.controls.enquiryID.errors }" [required]="true">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Agent ID:<span class="mandatoryField">*</span></label>
+                        <input pInputText formControlName="agentID" class="form-control" required 
+                        [ngClass]="{ 'is-invalid  ng-dirty': callRecordingUploadForm.controls.agentID.touched && callRecordingUploadForm.controls.agentID.errors }" [required]="true">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Phone Number:<span class="mandatoryField">*</span></label>
+                        <p-inputMask mask="9999999999" pInputText formControlName="phoneNo" class=""  
+                        [ngClass]="{ 'is-invalid  ng-dirty': callRecordingUploadForm.controls.phoneNo.touched && callRecordingUploadForm.controls.phoneNo.errors }" [required]="true">
+                        </p-inputMask>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <input pInputText formControlName="status" class="form-control"  >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Call Type:</label>
+                        <input pInputText formControlName="callType" class="form-control"  >
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Call Time:<span class="mandatoryField">*</span></label>
+                        <!-- <input pInputText formControlName="callTime" class="form-control" required placeholder="(DD-MM-YYYY, HH:MM:SS)"
+                        [ngClass]="{ 'is-invalid  ng-dirty': callRecordingUploadForm.controls.callTime.touched && callRecordingUploadForm.controls.callTime.errors }" [required]="true"> -->
+
+                        <input type="datetime-local" formControlName="callTime" class="ui-input"
+                            [ngClass]="{ 'is-invalid  ng-dirty': callRecordingUploadForm.controls.callTime.touched 
+                        && callRecordingUploadForm.controls.callTime.errors }" [required]="true" class="form-control" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Call Duration:<span class="mandatoryField">*</span></label>
+
+                        <p-inputMask mask="99:99:99" pInputText formControlName="Duration" class=""  
+                        [ngClass]="{ 'is-invalid  ng-dirty': callRecordingUploadForm.controls.Duration.touched && callRecordingUploadForm.controls.Duration.errors }" [required]="true">
+                        </p-inputMask>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Recording File<span class="mandatoryField">*</span></label>
+                        <input type="file" formControlName="recordingFile" class="form-control" required accept=".mp3,audio/*" [ngClass]="{ 'is-invalid  ng-dirty': callRecordingUploadForm.controls.recordingFile.touched && callRecordingUploadForm.controls.recordingFile.errors }" [required]="true" id="file" (change)="handleFileInput($event)">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <div class="btnWrap">
+            <button mat-button color="secondary" (click)="cancel()">Cancel</button>
+            <button mat-button color="primary" (click)="adCcallRecordingUpload()">Submit</button>
+        </div>
+    </mat-dialog-actions>

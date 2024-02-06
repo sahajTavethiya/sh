@@ -1,0 +1,37 @@
+<mat-card-content *ngIf="CustomerAcquisitionDetail" [formGroup]="CustomerAcquisitionDetail" class="formWrap">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Select Payment Method</label>
+                <p-dropdown appendTo="body" [options]="PaymentMethodArr" class="ui-input" optionValue="keyName" formControlName="paymentMethod" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Pay Order/DD/Cheque No</label>
+                <input type="text" formControlName="orderDDChequeNo"  class="form-control" placeholder="Pay Order/DD/Cheque No">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Payment Date</label>
+                <input type="date" formControlName="paymentDate"  class="form-control">
+            </div>
+        </div>
+    </div>  
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Drawn On</label>
+                <input type="date" formControlName="drawnOn" value="{{ CustomerAcquisitionDetail.get('drawnOn')?.value | date: 'yyyy-MM-dd' }}" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="number" formControlName="amount"  class="form-control" placeholder="Amount">
+            </div>
+        </div>
+    </div> 
+</mat-card-content>

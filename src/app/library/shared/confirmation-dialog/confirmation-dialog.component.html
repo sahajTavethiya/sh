@@ -1,0 +1,22 @@
+  <!-- <div mat-dialog-content>
+      {{message}}
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">No</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+    </div> -->
+
+
+
+   <div class="mat-dialog-title">{{data.header}}</div>
+<mat-dialog-content>
+  {{data.message}}
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="btnWrap">
+        <button mat-button color="secondary" (click)="onNoClick()">No</button>
+        <button mat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+    </div>
+</mat-dialog-actions>
+
+ 

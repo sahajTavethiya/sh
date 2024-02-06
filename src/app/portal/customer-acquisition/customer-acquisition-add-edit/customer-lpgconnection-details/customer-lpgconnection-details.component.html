@@ -1,0 +1,39 @@
+<mat-card-content *ngIf="RequestDetail" [formGroup]="RequestDetail" class="formWrap">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>LPG Connection</label>
+                <p-dropdown appendTo="body" [options]="LPGConnection" class="ui-input" optionValue="keyName" formControlName="isLPGConnection" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>LPG Connection Name</label>
+                <p-dropdown appendTo="body" [options]="LPGConnectionName" class="ui-input" optionValue="keyName" formControlName="lpgConnectionNameID" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>LPG Distributor</label>
+                <input type="text" formControlName="lpgDistributor"  class="form-control" placeholder="LPG Distributor">
+            </div>
+        </div>
+    </div>  
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Unique LPGID (17 Digits)</label>
+                <p-inputMask mask="99999999999999999" formControlName="lpgid" >
+                </p-inputMask>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Consumer No</label>
+                <input type="text" formControlName="consumerNo"  class="form-control" placeholder="Consumer No">
+            </div>
+        </div>
+    </div> 
+</mat-card-content>

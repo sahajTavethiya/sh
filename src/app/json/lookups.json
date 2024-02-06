@@ -1,0 +1,252 @@
+{
+    "Service Priority": [
+        {
+            "id": 7,
+            "keyName": "3",
+            "displayText": "High",
+            "category": "Service Priority",
+            "isActive": true,
+            "parent": null
+        },
+        {
+            "id": 6,
+            "keyName": "2",
+            "displayText": "Medium",
+            "category": "Service Priority",
+            "isActive": true,
+            "parent": null
+        },
+        {
+            "id": 5,
+            "keyName": "1",
+            "displayText": "Normal",
+            "category": "Service Priority",
+            "isActive": true,
+            "parent": null
+        }
+    ],
+    "Preferred Time": [
+        {
+            "id": 2,
+            "keyName": "12PM - 3PM",
+            "displayText": "12PM - 3PM",
+            "category": "Preferred Time",
+            "isActive": true,
+            "parent": null
+        },
+        {
+            "id": 3,
+            "keyName": "3PM - 6PM",
+            "displayText": "3PM - 6PM",
+            "category": "Preferred Time",
+            "isActive": true,
+            "parent": null
+        },
+        {
+            "id": 4,
+            "keyName": "6PM - 9PM",
+            "displayText": "6PM - 9PM",
+            "category": "Preferred Time",
+            "isActive": true,
+            "parent": null
+        },
+        {
+            "id": 1,
+            "keyName": "9AM - 12PM",
+            "displayText": "9AM - 12PM",
+            "category": "Preferred Time",
+            "isActive": true,
+            "parent": null
+        }
+    ],
+    "ServiceMaster": [
+        {
+            "id": 0,
+            "keyName": "24",
+            "displayText": "LPG Gas Pipeline",
+            "category": "ServiceMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "23",
+            "displayText": "Plumbing",
+            "category": "ServiceMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "1",
+            "displayText": "PNG Conversion",
+            "category": "ServiceMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "6",
+            "displayText": "PNG Installation RFC",
+            "category": "ServiceMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "15",
+            "displayText": "PNG Marketing",
+            "category": "ServiceMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "3",
+            "displayText": "PNG O&M Services",
+            "category": "ServiceMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "28",
+            "displayText": "PNG RFC Work",
+            "category": "ServiceMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "20",
+            "displayText": "Support Team",
+            "category": "ServiceMaster",
+            "isActive": null,
+            "parent": null
+        }
+    ],
+    "ServiceStageMaster": [
+        {
+            "id": 0,
+            "keyName": "2",
+            "displayText": "Assigned",
+            "category": "ServiceStageMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "26",
+            "displayText": "Closed",
+            "category": "ServiceStageMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "21",
+            "displayText": "Completed",
+            "category": "ServiceStageMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "3",
+            "displayText": "Delay",
+            "category": "ServiceStageMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "25",
+            "displayText": "In Progress",
+            "category": "ServiceStageMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "6",
+            "displayText": "In Queue",
+            "category": "ServiceStageMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "24",
+            "displayText": "Review Complete",
+            "category": "ServiceStageMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "5",
+            "displayText": "Waiting for Approval",
+            "category": "ServiceStageMaster",
+            "isActive": null,
+            "parent": null
+        }
+    ],
+    "ZoneMaster": [
+        {
+            "id": 0,
+            "keyName": "2",
+            "displayText": "East Delhi",
+            "category": "ZoneMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "1",
+            "displayText": "Greater Noida",
+            "category": "ZoneMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "12",
+            "displayText": "Gurgaon",
+            "category": "ZoneMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "24",
+            "displayText": "Noida",
+            "category": "ZoneMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "4",
+            "displayText": "North Delhi",
+            "category": "ZoneMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "5",
+            "displayText": "South Delhi",
+            "category": "ZoneMaster",
+            "isActive": null,
+            "parent": null
+        },
+        {
+            "id": 0,
+            "keyName": "3",
+            "displayText": "West Delhi",
+            "category": "ZoneMaster",
+            "isActive": null,
+            "parent": null
+        }
+    ]
+}

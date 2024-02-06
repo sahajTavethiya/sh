@@ -1,0 +1,67 @@
+@import "typography";
+@import "color";
+.form-control {
+    font-family: $font-primary;
+    font-size: 13px;
+    padding: 2px 5px;
+    line-height: 24px;
+}
+
+label {
+    font-family: $font-primary;
+    font-size: 13px;
+    padding: 0 0 4px 0;
+    display: block;
+}
+
+.p-inputtext,
+.p-dropdown,
+.p-multiselect,
+textarea {
+    font-family: $font-primary;
+    font-size: 13px;
+    padding: 2px 5px;
+    width: 100%;
+    line-height: 24px;
+    border-color: $form-element-border-color;
+}
+
+textarea {
+    border: 1px solid $form-element-border-color;
+}
+
+.p-dropdown {
+    .p-inputtext {
+        padding: 0;
+    }
+    .p-dropdown-panel {
+        .p-dropdown-items {
+            .p-dropdown-empty-message {
+                padding: 4px 8px;
+            }
+        }
+    }
+    &.p-disabled {
+        opacity: 1;
+        border-color: #ced4da;
+        background-color: #e9ecef;
+    }
+}
+
+.p-multiselect {
+    .p-multiselect-label {
+        padding: 0;
+    }
+    .p-multiselect-panel {
+        .p-multiselect-items {
+            .p-multiselect-empty-message {
+                padding: 4px 8px;
+            }
+        }
+    }
+    &.p-disabled {
+        opacity: 1;
+        border-color: #ced4da;
+        background-color: #e9ecef;
+    }
+}

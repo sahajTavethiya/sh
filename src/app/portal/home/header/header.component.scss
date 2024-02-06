@@ -1,0 +1,76 @@
+@import "../../../../scss/color";
+header {
+    height: 60px;
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.dropdown {
+    margin-left: 20px;
+    ul {
+        &.dropdown-menu {
+            margin-top: 14px !important;
+            background: #2d668e;
+            box-shadow: 2px 3px 4px rgba(0, 0, 0, .175);
+            border-radius: 0;
+            li {
+                font-size: 13px;
+                color: #fff;
+            }
+        }
+    }
+    .dropdown-item {
+        font-size: 13px;
+        color: #fff;
+        padding: 6px 12px;
+        &:focus,
+        &.active,
+        &:active,
+        &:hover {
+            background-color: $userProfile-menu-hover-color;
+        }
+    }
+    i {
+        margin-right: 5px;
+    }
+    &.manageProfile {
+        padding-right: 15px;
+        .dropdown-toggle {
+            font-size: 14px;
+            &:after {
+                color: #000;
+                position: absolute;
+                top: 50%;
+            }
+        }
+        ul {
+            &.dropdown-menu {
+                margin-top: 21px !important;
+            }
+        }
+    }
+    &.settingMenu {
+        >a {
+            color: $gray-8;
+            &::after {
+                display: none;
+            }
+        }
+        ul {
+            width: 240px;
+            max-height: 500px;
+            overflow-y: auto;
+            li {
+                &.parentMenu {
+                    padding: 6px 8px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+        .dropdown-item {
+            padding: 6px 12px;
+        }
+    }
+}

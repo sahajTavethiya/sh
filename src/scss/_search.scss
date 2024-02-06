@@ -1,0 +1,70 @@
+@import "../scss/color";
+#test ::ng-deep .mat-form-field-hide-placeholder .mat-form-field-label-wrapper {
+    text-align: center;
+    top: -25px;
+}
+
+#test ::ng-deep .mat-form-field-should-float {
+    text-align: center;
+}
+.search {
+    .p-inputtext {
+        width: 200px !important;
+        border-color: #b5b0b0;
+        margin-right: 10px;
+        line-height: 32px;
+    }
+    .searchHeader {
+        padding: 10px 10px 0px 0px;
+        .criteria {
+            float: left;
+            width: 95%;
+            align-items: self-start;
+        }
+    }
+    .searchTable {
+        background-color: #fff;
+        padding: 20px 0px;
+        min-height: 400px;
+        clear: both;
+    }
+    .requestFormDataWrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 4px 0 10px 0px;
+        label {
+            border: 1px solid $color-yellow-primary;
+            padding: 7px;
+        }
+        label {
+            background-color: $color-yellow-primary;
+            line-height: 38px;
+        }
+        div {
+            margin-right: 20px;
+            line-height: 38px;
+            width: 93%;
+        }
+        .chipContainer {
+            //border: 1px solid #ced4da;
+            padding: 7px;
+            border: 1px solid $color-yellow-primary;
+            max-height: 84px;
+            min-height: 46px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            display: inline-block;
+            background-color: #fff;
+            line-height: 50px;
+        }
+    }
+
+    .singleChip {
+        min-height: 30px !important;
+        padding: 0px 10px !important;
+        overflow: hidden;
+        max-height: 100px;
+        height: auto !important;
+    }
+}

@@ -1,0 +1,47 @@
+<div>
+    <div class="mat-dialog-title" >View Documents</div>
+    <mat-dialog-content>
+        <!-- <a  href="{{downloadAll}}" (click)="viewImage()">Download All</a> -->
+        <!--  [totalRecords]="documentList.length"  -->
+        <p-table class="pTable" #openingTaskDetails  [value]="data"
+            [paginator]="false" [alwaysShowPaginator]="false" 
+            dataKey="id">
+            <ng-template pTemplate="header" let-columns>
+                <tr class="searchTr">
+                    <!-- <th id="header" pSortableColumn="Category"> Document Name
+                        <p-sortIcon field="documentName"></p-sortIcon>
+                    </th> -->
+                    <th id="header"> image
+                    </th>
+                    <th id="header"> DownloadImage
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-ri="rowIndex">
+                <tr class="searchTr" *ngIf="!rowData.isDeleted">
+                    <!-- <td>{{ rowData.image }}</td> -->
+                    <td> 
+                        <img src={{rowData.downloadImage}}  style=" height: 50px; width: 50px;cursor: pointer;"/>
+                        <!-- <img *ngIf="rowData.fileName != null && rowData.formet " src="assets/images/pdf.jpg" (click)= "viewImage(rowData.fileName);" style=" height: 50px; width: 50px;cursor: pointer;"/> -->
+
+                        <!-- <a *ngIf="rowData.fileName != null" style="cursor: pointer;" (click)= "viewImage(rowData.fileName);">
+                        Downloads
+                      </a> -->
+                    </td>
+                    <td><button class="mat-focus-indicator mat-button mat-button-base mat-primary"  (click)=" downloadImage(rowData.downloadImage)">download</button></td>
+                    
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="3">No Record Found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </mat-dialog-content>
+</div>
+<mat-dialog-actions>
+    <div>
+        <button mat-stroked-button color="secondary" (click)="cancel()">Cancel</button>
+    </div>
+</mat-dialog-actions>

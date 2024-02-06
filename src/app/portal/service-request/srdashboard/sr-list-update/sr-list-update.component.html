@@ -1,0 +1,57 @@
+<div>
+    <div class="mat-dialog-title" >Edit Service Requests</div>
+    <mat-dialog-content >
+        <form *ngIf="updateSR" [formGroup]="updateSR" class="formWrap">
+            <div class="row">
+                <div class="col-6">
+                    <label>Choose a field the dropdown and update with new information</label>
+                       
+                        <p-dropdown appendTo="body" formControlName="dropdownID" [options]="EmployeeArr"  class="ui-input" optionValue="id" optionLabel="name" placeholder="-Select-">
+                        </p-dropdown>
+                </div>
+                <div class="col-6" *ngIf="EnquiryStatus">
+                    <label>Service Status</label>
+                    <p-dropdown appendTo="body" [options]="ServiceStageMasterArr" class="ui-input"  optionValue="keyName" formControlName="enquiryStatus" optionLabel="displayText" placeholder="-Select-">
+                    </p-dropdown>
+                
+                    
+                </div>
+                <div class="col-6" *ngIf="Description">
+                    <label>Calling Remark</label>
+                    <textarea pInputText formControlName="callingRemark" #delayReason required  maxlength="200"></textarea>
+                
+                    
+                </div>
+                <div class="col-6" *ngIf="PreferredDate">
+                    <label>Preferred Date</label>
+
+                    <!-- <input type="date" formControlName="preferredDate" name="preferredDate" value="{{ updateSR.get('preferredDate')?.value}}" id="preferredDate" class="form-control" placeholder="Created Date"> -->
+
+                    <input type="date" value="{{data.enquiryData.preferredDate}}" formControlName="preferredDate" class="form-control" >
+                
+                    
+                </div>
+                <div class="col-6" *ngIf="GasStatus">
+                    <label>Gas Status</label>
+                    
+                    <p-dropdown appendTo="body" [options]="PlanMasteArr"  class="ui-input"  optionValue="keyName" formControlName="gasStatus" optionLabel="displayText" placeholder="-Select-">
+                    </p-dropdown>
+                    
+                </div>
+                <div class="col-6" *ngIf="Priority">
+                    <label>Priority</label>
+                    
+                    <p-dropdown appendTo="body" [options]="ServicePriorityArr"  class="ui-input"  optionValue="keyName" formControlName="priority" optionLabel="displayText" placeholder="-Select-">
+                    </p-dropdown>
+                    
+                </div>
+            </div>
+        </form>
+    </mat-dialog-content>
+</div>
+<mat-dialog-actions>
+    <div>
+        <button mat-stroked-button color="secondary" (click)="cancel()">Cancel</button>
+        <button mat-button color="primary" (click)="editSR()">Submit</button>
+    </div>
+</mat-dialog-actions>

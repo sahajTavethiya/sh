@@ -1,0 +1,74 @@
+<mat-nav-list>
+    
+        <a class="navLink" routerLink="/">
+            <mat-list-item>
+                Dashboard
+            </mat-list-item>
+        </a>
+        <a class="navLink" routerLink="/OrderReport">
+            <mat-list-item>
+                Order Report
+            </mat-list-item>
+        </a>
+        <a class="navLink" routerLink="/WorkerReport">
+            <mat-list-item>
+                Worker Report
+            </mat-list-item>
+        </a>
+        <a class="navLink" routerLink="/StockReport">
+            <mat-list-item>
+                Stock Report
+            </mat-list-item>
+        </a>
+        <a class="navLink" routerLink="/DailyWork">
+            <mat-list-item>
+                Daily Work Report
+            </mat-list-item>
+        </a>
+        <a class="navLink" routerLink="/AssignTask">
+            <mat-list-item>
+                Assing Task
+            </mat-list-item>
+        </a>
+        <a class="navLink" routerLink="/ProductionReport">
+            <mat-list-item>
+                Production Report
+            </mat-list-item>
+        </a>
+        <a class="navLink" routerLink="/Selling">
+            <mat-list-item>
+                Selling Report
+            </mat-list-item>
+        </a>
+        <!-- <a class="navLink" href="{{DASHBOARD}}" target="_blank">
+            Dashboard
+        </a> -->
+    <!-- <mat-accordion>
+        <mat-expansion-panel *ngFor="let menu of menus">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <div class="navLink">
+                        {{menu.displayName}}
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let child of menu.children">
+                <div *ngIf="child.type == 0">
+                    <mat-list-item (click)="oldAppClick(child.url)">
+                        <a class="navLink" >
+                            {{child.displayName}}
+                        </a>
+                    </mat-list-item>
+                </div>
+                <div *ngIf="child.type == 1">
+                    <a class="navLink" [routerLink]="child.url">
+                        <mat-list-item>
+                            {{child.displayName}}
+                        </mat-list-item>
+                    </a>
+                </div>
+            </div>
+            
+        </mat-expansion-panel>
+    </mat-accordion> -->
+</mat-nav-list>

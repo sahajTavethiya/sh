@@ -1,0 +1,20 @@
+@import './animate.scss';
+@import 'custom.scss';
+@import 'customStyle.scss';
+@import 'sb-admin.scss';
+@import 'menu';
+@import 'typography';
+@import 'color';
+@import 'material';
+@import 'primeng';
+@import 'textStyle';
+@import 'dialog';
+@import 'formElement';
+@import 'search';
+a {
+    color: $text-link-primary;
+    text-decoration: none;
+    &:hover {
+        color: $black;
+    }
+}

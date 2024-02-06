@@ -1,0 +1,37 @@
+// .example-container {
+//     display: flex;
+//     flex-direction: column;
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+// }
+// .example-sidenav-container {
+//     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+//        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+//     flex: 1;
+// }
+@import "../scss/color";
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99;
+    box-shadow: $box-shadow-primary;
+    background: #fff;
+    .mat-icon-button {
+        height: 60px;
+        width: 60px;
+        border-radius: 0;
+    }
+    img.brand-logo {
+        margin: 6px 0 6px 24px;
+    }
+}
+
+.midArea {
+    display: flex;
+    height: calc(100% - 30px);
+}

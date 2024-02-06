@@ -1,0 +1,226 @@
+<mat-card-content *ngIf="requestForm" [formGroup]="requestForm">
+    <div class="tabBody">
+        <div class="row">
+            <div class="col-8">
+                <h2>Spares and Consumables <span class="text-b">({{requestForm.get('sparesConsumableList')?.value.length
+                        || 0}})</span>
+                </h2>
+            </div>
+            <div class="col-4 btnWrap mb-2">
+                    <p-button label="Add" icon="pi pi-plus"
+                    [disabled]="(!requestForm.controls.spareAndConsumablePermission.get('create')?.value)" iconPos="left"
+                    (onClick)="addOpenSparesConsumables()">
+                </p-button>
+            </div>
+        </div>
+        <p-table class="pTable" #openingTaskDetails [value]="requestForm.get('sparesConsumableList')?.value"
+            [paginator]="true" [alwaysShowPaginator]="false" [rows]="5" [rowsPerPageOptions]="[5,10,20]"
+            [totalRecords]="requestForm.get('sparesConsumableList')?.value.length" dataKey="id">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th id="header" pSortableColumn="materialId"> Material Id
+                        <p-sortIcon field="materialId"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="materialName"> Material Name
+                        <p-sortIcon field="materialName"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="subCategory"> SubCategory Name
+                        <p-sortIcon field="subCategoryName"></p-sortIcon>
+                    </th>
+                    <!-- <th id="header" pSortableColumn="materialId"> Material Id
+                        <p-sortIcon field="materialId"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="materialName"> Material Name
+                        <p-sortIcon field="materialName"></p-sortIcon>
+                    </th> -->
+                    <!-- <th id="header" pSortableColumn="unit"> Unit
+                        <p-sortIcon field="unit"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="cost"> Cost
+                        <p-sortIcon field="cost"></p-sortIcon>
+                    </th> -->
+                    <th id="header" pSortableColumn="quantity"> Qty.
+                        <p-sortIcon field="quantity"></p-sortIcon>
+                    </th>
+                    <!-- <th id="header" pSortableColumn="price"> Price
+                        <p-sortIcon field="price"></p-sortIcon>
+                    </th> -->
+                    <th id="header" pSortableColumn="materialAddedOn"> Material AddedOn
+                        <p-sortIcon field="materialAddedOn"></p-sortIcon>
+                    </th>
+                    <!-- <th id="header" pSortableColumn="modifiedDate"> Modified Date
+                        <p-sortIcon field="modifiedDate"></p-sortIcon>
+                    </th> -->
+                    <th id="header"> CreatedBy
+                    </th>
+                    <th id="header"> Action
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-ri="rowIndex">
+                <tr *ngIf="!rowData.isDeleted">
+                    <td>{{ rowData.materialId }}</td>
+                    <td>{{ rowData.materialName }}</td>
+                    <td>{{rowData.subCategoryName}}</td>
+                    <td>{{ rowData.quantity }} </td>
+                    <td>{{rowData.materialAddedOn == null ?"":this.service.Moment(rowData.materialAddedOn).format("MM-DD-YYYY
+                        h:mm a")}}</td>
+                    <!-- <td *ngIf="requestForm.controls.spareAndConsumablePermission.get('edit')?.value">
+                        <input pInputText class="form-control"
+                            (change)="spareAndConsumable_quantity(ri,$event,rowData.cost)" [value]="rowData.quantity"
+                            [required]="true">
+                    </td>
+                    <td *ngIf="!requestForm.controls.spareAndConsumablePermission.get('edit')?.value">
+                        {{rowData.quantity}}
+                    </td>
+                    <!-- <td>{{ rowData.quantity }} </td> 
+                    <td>{{ rowData.salePrice | currency:'INR' }} </td>
+                    <td>{{this.service.Moment(rowData.requestedDate).format("MM-DD-YYYY h:mm a")}}</td>
+                    <td>{{rowData.modifiedDate == null ?"":this.service.Moment(rowData.modifiedDate).format("MM-DD-YYYY
+                        h:mm a")}}</td> -->
+                    <td>{{rowData.entryByName}}</td>
+                    <td>
+                        <mat-icon class="icon"
+                            *ngIf="requestForm.controls.spareAndConsumablePermission.get('delete')?.value"
+                            (click)="deleteSparesConsumables(ri)">delete</mat-icon>
+                    </td>
+                    
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="9">No Record Found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="tabBody">
+        <div class="row">
+            <div class="col-8">
+                <h2>Opening Task Type Details <span
+                        class="text-b">({{requestForm.get('enquiryTaskLine')?.value.length}})</span>
+                </h2>
+            </div>
+
+            <div class="col-4 btnWrap mb-2">
+                    <p-button label="Add" icon="pi pi-plus" iconPos="left" (onClick)="addOpenTaskDetail(1)"
+                    [disabled]="!requestForm.controls.openingTaskTypePermission.get('create')?.value">
+                </p-button>
+
+            </div>
+        </div>
+        <p-table class="pTable" #openingTaskDetails [value]="requestForm.get('enquiryTaskLine')?.value"
+            [paginator]="true" [alwaysShowPaginator]="false" [rows]="5" [rowsPerPageOptions]="[5,10,20]"
+            [totalRecords]="requestForm.get('enquiryTaskLine')?.value.length" dataKey="id">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th id="header" pSortableColumn="serviceCategory"> Service Category
+                        <p-sortIcon field="serviceCategory"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="serviceSubCategory"> Service Sub Category
+                        <p-sortIcon field="serviceSubCategory"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="quantity"> Quantity
+                        <p-sortIcon field="quantity"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="amount"> Amount
+                        <p-sortIcon field="amount"></p-sortIcon>
+                    </th>
+                    <th id="header"> Action
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-ri="rowIndex">
+                <tr *ngIf="!rowData.isDeleted && rowData.taskType == 1">
+                    <td>{{ rowData.category }}</td>
+                    <td>{{ rowData.subCategory }}</td>
+                    <td *ngIf="requestForm.controls.openingTaskTypePermission.get('edit')?.value">
+                        <input pInputText class="form-control" (change)="OpeningTask_quantity(ri,$event,1)"
+                            [value]="rowData.quantity" required />
+                    </td>
+                    <td *ngIf="!requestForm.controls.openingTaskTypePermission.get('edit')?.value">
+                        {{rowData.quantity}}
+                    </td>
+                    <td>{{rowData.price}}
+                    </td>
+                    <td>
+                        <mat-icon class="icon"
+                            *ngIf="requestForm.controls.openingTaskTypePermission.get('delete')?.value"
+                            (click)="deleteTaskType(ri)">delete
+                        </mat-icon>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="5">No Record Found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="tabBody">
+        <div class="row">
+            <div class="col-8">
+                <h2>Actual Task Type Details <span class="text-b">({{requestForm.get('enquiryTaskLine')?.value.length
+                        || 0}})</span>
+                </h2>
+            </div>
+            <div class="col-4 btnWrap mb-2">
+                    <p-button label="Add" icon="pi pi-plus"
+                    [disabled]="!requestForm.controls.actualTaskTypePermission.get('create')?.value" iconPos="left"
+                    (onClick)="addOpenTaskDetail(2)"></p-button>
+            </div>
+        </div>
+        <p-table class="pTable" #openingTaskDetails [value]="requestForm.get('enquiryTaskLine')?.value"
+            [paginator]="true" [alwaysShowPaginator]="false" [rows]="5" [rowsPerPageOptions]="[5,10,20]"
+            [totalRecords]="requestForm.get('enquiryTaskLine')?.value.length" dataKey="id">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th id="header" pSortableColumn="serviceCategory"> Service Category
+                        <p-sortIcon field="serviceCategory"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="serviceSubCategory"> Service Sub Category
+                        <p-sortIcon field="serviceSubCategory"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="actualQuantity"> Actual Quantity
+                        <p-sortIcon field="actualQuantity"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="actualPrice"> Actual Price
+                        <p-sortIcon field="actualPrice"></p-sortIcon>
+                    </th>
+                    <th id="header"> Action
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-ri="rowIndex">
+                <tr *ngIf="!rowData.isDeleted && (rowData.taskType == 2 || rowData.status == true)">
+                    <td>{{ rowData.category }}</td>
+                    <td>{{ rowData.subCategory }}</td>
+                    <td *ngIf="requestForm.controls.actualTaskTypePermission.get('edit')?.value">
+                        <input pInputText class="form-control" (change)="OpeningTask_quantity(ri,$event,3)"
+                            [value]="rowData.actualQuantity" required />
+                    <td *ngIf="requestForm.controls.actualTaskTypePermission.get('edit')?.value">
+                        <input pInputText class="form-control" (change)="OpeningTask_quantity(ri,$event,4)"
+                            [value]="rowData.actualPrice" required />
+                    </td>
+                    <td *ngIf="!requestForm.controls.actualTaskTypePermission.get('edit')?.value">
+                        {{rowData.actualQuantity}}
+                    </td>
+                    <td *ngIf="!requestForm.controls.actualTaskTypePermission.get('edit')?.value">
+                        {{rowData.actualPrice}}
+                    </td>
+                    <td>
+                        <mat-icon *ngIf="requestForm.controls.actualTaskTypePermission.get('delete')?.value"
+                            class="icon" (click)="deleteTaskType(ri)">delete
+                        </mat-icon>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="5">No Record Found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</mat-card-content>

@@ -1,0 +1,101 @@
+<mat-card-content *ngIf="requestForm" [formGroup]="requestForm">
+    <div class="tabBody">
+        <p-table class="pTable" #openingTaskDetails [value]="requestForm.get('enquiryCallDetailList')?.value"
+            [paginator]="true" [alwaysShowPaginator]="false" [rows]="5" [rowsPerPageOptions]="[5,10,20]"
+            [totalRecords]="requestForm.get('enquiryCallDetailList')?.value.length" dataKey="id"  [tableStyle]="{'table-layout':'auto'}">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th id="header" pSortableColumn="callTime"> Call Time
+                        <p-sortIcon field="callTime"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="agentID"> Agent ID
+                        <p-sortIcon field="agentID"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="callType"> Call Type
+                        <p-sortIcon field="callType"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="phoneNumber"> Phone Number
+                        <p-sortIcon field="phoneNumber"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="callDuration"> Call Duration
+                        <p-sortIcon field="callDuration"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="audioFile"> Audio File
+                        <p-sortIcon field="audioFile"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="lastRemark"> Last Remark
+                        <p-sortIcon field="lastRemark"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="remarkTime"> Remark Time
+                        <p-sortIcon field="remarkTime"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-ri="rowIndex">
+                <tr *ngIf="!rowData.isDeleted">
+                    <td>{{ rowData.callTime }}</td>
+                    <td>{{ rowData.agentID }}</td>
+                    <td>{{ rowData.callType }} </td>
+                    <td>{{ rowData.phoneNo }}</td>
+                    <td>{{ rowData.callDuration !=null ?(rowData.callDuration.hours+':'+ rowData.callDuration.minutes+':'+ rowData.callDuration.seconds):''}}</td>
+                    <td>{{ rowData.recordingFileName }}</td>
+                    <td>{{ rowData.description }}</td>
+                    <td>{{this.service.Moment(rowData.createdOn).format("MM-DD-YYYY h:mm a")}}</td>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="8">No Record Found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <div class="tabBody">
+        <p-table class="pTable" #openingTaskDetails [value]="requestForm.get('customerCorrespondenceList')?.value"
+            [paginator]="true" [alwaysShowPaginator]="false" [rows]="5" [rowsPerPageOptions]="[5,10,20]"
+            [totalRecords]="requestForm.get('customerCorrespondenceList')?.value.length" dataKey="id">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th id="header" pSortableColumn="visitTime"> Visit Time
+                        <p-sortIcon field="visitTime"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="visitedBy"> Visited By
+                        <p-sortIcon field="visitedBy"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="visitedGPSLocation"> Visited GPS Location
+                        <p-sortIcon field="visitedGPSLocation"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="remarkTime"> Remark Time
+                        <p-sortIcon field="remarkTime"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="imageTaken"> Image Taken
+                        <p-sortIcon field="imageTaken"></p-sortIcon>
+                    </th>
+                    <th id="header" pSortableColumn="visitRemark"> Visit Remark
+                        <p-sortIcon field="visitRemark"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-ri="rowIndex">
+                <tr *ngIf="!rowData.isDeleted">
+                    <td>
+                        {{this.service.Moment(rowData.startTime).format("MM-DD-YYYY h:mm a")}}
+                    </td>
+                    <td>{{ rowData.stageModifiedBy }}</td>
+                    <td>{{ rowData.homeaddress }} </td>
+                    <td>{{ rowData.delaytime }}</td>
+                    <td>{{ rowData.houseAddressImage }}</td>
+                    <td>{{ rowData.delayReason }}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="6">No Record Found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+</mat-card-content>

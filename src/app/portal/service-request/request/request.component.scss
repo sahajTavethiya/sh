@@ -1,0 +1,22 @@
+@import "../../../../scss/color";
+.manageServiceRequestPage {
+    .requestFormDataWrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 4px 0 20px 0;
+        label,
+        div {
+            display: inline-block;
+            padding: 6px 10px;
+            border: 1px solid $color-yellow-primary;
+            background-color: #fff;
+        }
+        label {
+            background-color: $color-yellow-primary;
+        }
+        div {
+            margin-right: 20px;
+        }
+    }
+}

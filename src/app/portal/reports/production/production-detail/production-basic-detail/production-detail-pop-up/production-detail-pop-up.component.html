@@ -1,0 +1,45 @@
+<div class="mat-dialog-title">Add Production</div>
+<mat-dialog-content style="height: 200px;">
+    <form *ngIf="SaveWorkForm" [formGroup]="SaveWorkForm" class="formWrap">
+        <div class="row">
+            <div class="col-6">
+                <label>Product</label>
+                    <p-dropdown [options]="ProductMaster" class="ui-input" optionValue="KeyName" formControlName="productId" optionLabel="DisplayText" placeholder="-Select-" [filter]="true">
+                    </p-dropdown>
+            </div>
+            <div class="col-6">
+                <label>Design</label>
+                    <p-dropdown [options]="DesignMaster" class="ui-input" optionValue="KeyName" formControlName="designId" optionLabel="DisplayText" placeholder="-Select-" [filter]="true">
+                    </p-dropdown>
+            </div>
+            <div class="col-6">
+                <label>Size</label>
+                    <p-dropdown [options]="SizeMaster" class="ui-input" optionValue="KeyName" formControlName="sizeId" optionLabel="DisplayText" placeholder="-Select-" [filter]="true">
+                    </p-dropdown>
+            </div>
+            <div class="col-6">
+                <label>Colour</label>
+                    <p-dropdown [options]="ColourMaster" class="ui-input" optionValue="KeyName" formControlName="colourId" optionLabel="DisplayText" placeholder="-Select-" [filter]="true">
+                    </p-dropdown>
+            </div>
+            <div class="col-6">
+                <label>Pieces<span class="mandatoryField">*</span></label>
+                <input type="number" class="form-control" formControlName="noOfPiece"/>
+            </div>
+            <!-- <div class="col-6">
+                <label>Complete Item<span class="mandatoryField">*</span></label>
+                <input type="number" class="form-control" formControlName="completePiece"/>
+            </div>
+            <div class="col-6">
+                <label>Note<span class="mandatoryField">*</span></label>
+                <input type="string" class="form-control" formControlName="note"/>
+            </div> -->
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="btnWrap">
+        <button mat-button color="secondary" (click)="cancel()">Cancel</button>
+        <button mat-button color="primary" (click)="saveData()">Submit</button>
+    </div>
+</mat-dialog-actions>

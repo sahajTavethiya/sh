@@ -1,0 +1,26 @@
+<div class="mat-dialog-title">Add Daily Work</div>
+<mat-dialog-content style="height: 200px;">
+    <form *ngIf="SaveWorkForm" [formGroup]="SaveWorkForm" class="formWrap">
+        <div class="row">
+            <div class="col-6">
+                <label>Employee</label>
+                    <p-dropdown [options]="EmployeeArr" class="ui-input" optionValue="AssignById" formControlName="userId" optionLabel="AssignEmployeeName" placeholder="-Select-">
+                    </p-dropdown>
+            </div>
+            <div class="col-6">
+                <label>Complete Item<span class="mandatoryField">*</span></label>
+                <input type="number" class="form-control" formControlName="completePiece"/>
+            </div>
+            <div class="col-6">
+                <label>Note<span class="mandatoryField">*</span></label>
+                <input type="string" class="form-control" formControlName="note"/>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="btnWrap">
+        <button mat-button color="secondary" (click)="cancel()">Cancel</button>
+        <button mat-button color="primary" (click)="saveData()">Submit</button>
+    </div>
+</mat-dialog-actions>

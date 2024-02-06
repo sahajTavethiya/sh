@@ -1,0 +1,134 @@
+<mat-card-content class="formWrap" [formGroup]="RequestDetail">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>BankName :</label>
+                <input type="text" formControlName="BankName" name="BankName" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Mobile No: </label>
+                <input type="text" formControlName="Branch" name="Branch" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <!-- <div class="form-group">
+                <label>Mobile</label>
+                <p-inputMask mask="999-999-9999" formControlName="mobileNo" >
+                </p-inputMask>
+            </div> -->
+            <label>NEFT RTGS CODE:</label>
+            <input type="text" formControlName="NEFT_RTGS_Code" name="NEFT_RTGS_Code" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Address:</label>
+                <input type="text" formControlName="Address" name="Address" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>AccountNO :</label>
+            <input type="text" formControlName="AccountNO" name="AccountNO" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>cheque :</label>
+                <input type="File"  (change)="onFileSelected($event,'Scannedcheque')" formControlName="ScannedchequeFile" name="ScannedchequeFile" class="form-control">
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Pin Code :</label>
+                <input type="text" formControlName="PinCode" name="PinCode" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>City :</label>
+            <input type="text" formControlName="CityId" name="CityId" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>State :</label>
+                <input type="text" formControlName="StateId" name="StateId" class="form-control">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Country :</label>
+                <input type="text" formControlName="CountryId" name="CountryId" class="form-control">
+            </div>
+        </div> -->
+        <!-- <div class="col-4">
+            <label>PanNo :</label>
+            <input type="text" formControlName="PanNo" name="PanNo" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Qualification :</label>
+                <input type="text" formControlName="Qualification" name="Qualification" class="form-control">
+            </div>
+        </div>
+    </div> -->
+    <!-- <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>AadhaarNo :</label>
+                <input type="text" formControlName="AadhaarNo" name="AadhaarNo" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>PanNo :</label>
+            <input type="text" formControlName="PanNo" name="PanNo" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Qualification :</label>
+                <input type="text" formControlName="Qualification" name="Qualification" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Area served :</label>
+                <input type="text" formControlName="worklocations" name="worklocations" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Years Of Experience :</label>
+            <input type="text" formControlName="YearsOfExperience" name="YearsOfExperience" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Remark :</label>
+                <input type="text" formControlName="Remark" name="Remark" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>GovtIdCardFile :</label>
+                <input type="file" formControlName="GovtIdCardFile" name="GovtIdCardFile" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Appointment Letter File :</label>
+            <input type="file" formControlName="AppointmentLetterFile" name="AppointmentLetterFile" class="form-control">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Joining Form File :</label>
+                <input type="file" formControlName="JoiningFormFile" name="JoiningFormFile" class="form-control">
+            </div>
+        </div>
+    </div> -->
+</mat-card-content>

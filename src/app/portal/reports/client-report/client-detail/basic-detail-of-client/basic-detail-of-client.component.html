@@ -1,0 +1,142 @@
+<mat-card-content *ngIf="RequestDetail" [formGroup]="RequestDetail" class="formWrap">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Client Name :</label>
+                <input pInputText class="form-control" formControlName="ClientName" />
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Email : </label>
+                <input pInputText class="form-control" formControlName="EmailId" />
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Mobile : </label>
+                <input pInputText class="form-control" formControlName="Mobile" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Address :</label>
+                <input type="text" class="form-control" formControlName="Address" />
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>State and Code : </label>
+                <input type="text" class="form-control" formControlName="StateAndCode" maxlength="20" />
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>GST No. : </label>
+                <input type="text" class="form-control" formControlName="GST_No" maxlength="20" />
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Size : </label>
+                <p-dropdown [options]="SizeMaster" class="ui-input" optionValue="KeyName" formControlName="SizeId" optionLabel="DisplayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+         <div class="col-4">
+            <div class="form-group">
+                <label>Design :<span class="mandatoryField">*</span></label>
+                <p-dropdown [options]="DesignMaster"  class="ui-input" [required]="true" optionValue="KeyName" formControlName="DesignId" optionLabel="DisplayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>Total Item<span class="mandatoryField">*</span></label>
+                <input pInputText class="form-control" formControlName="TotalItem"/>
+            </div>
+        </div>
+    </div> -->
+    <!-- <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Amount Per Item<span class="mandatoryField">*</span></label>
+                <input pInputText class="form-control" formControlName="AmountPerOneItem"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label>BillNo<span class="mandatoryField">*</span></label>
+                <input pInputText class="form-control" formControlName="BillNo"/>
+            </div>
+        </div>
+ 
+        <div class="col-4">
+            <div class="form-group">
+                <label>Status</label>
+                <p-dropdown [options]="StatusMaster" class="ui-input" optionValue="KeyName" formControlName="StatusId" optionLabel="DisplayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div> 
+        
+    </div> -->
+    <div class="row">
+        <!-- <div class="col-4">
+            <div class="form-group">
+                <label>Client</label>
+                <p-dropdown [options]="clients" class="ui-input" optionValue="keyName" formControlName="serviceFor" optionLabel="displayText" placeholder="-Select-">
+                </p-dropdown>
+            </div>
+        </div> -->
+
+    </div>
+    <!-- <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Calling Remarks</label>
+                <textarea pInputText formControlName="description" class="form-control" #description  maxlength="70">
+                </textarea>
+                <mat-hint>({{description.value.length || 0}}/70)</mat-hint>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="row"  >
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Pressure Gauge Make</label>
+                    <input pInputText class="form-control" formControlName="pressureGuageMake" />
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Pressure Gauge No</label>
+                    <input pInputText class="form-control" formControlName="pressureGuageMakeNo" />
+                </div>
+            </div>
+        </div> -->
+    <!-- <div class="row" *ngIf="MDPEDisabled" >
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Gauge calibration validity From </label>
+                    <input type="date" formControlName="gaugeCalibrationValidityFromDate" class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Gauge calibration validity To </label>
+                    <input type="date" formControlName="gaugeCalibrationValidityFromTo" class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Holding Time </label>
+                    <input type="time" formControlName="holdingTime" class="form-control">
+                </div>
+            </div>
+        </div> -->
+</mat-card-content>

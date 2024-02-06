@@ -1,0 +1,42 @@
+<div class="mat-dialog-title">Order Assign to</div>
+<mat-dialog-content>
+    <!-- -->
+    <form class="formWrap" *ngIf="sparesConsumablesForm" [formGroup]="sparesConsumablesForm" >
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Manager Name</label>
+                    <!-- [ngClass]="{ 'is-invalid  ng-dirty': sparesConsumablesForm.controls.id.touched && sparesConsumablesForm.controls.id.errors }" -->
+                    <p-dropdown appendTo="body" [options]="manager" [filter]="true" filterBy="DisplayText"
+                        class="ui-input" [required]="true" formControlName="assignToId" optionLabel="DisplayText"
+                        optionValue="KeyName" placeholder="-Select-">
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <!-- [ngClass]="{ 'is-invalid  ng-dirty': sparesConsumablesForm.controls.quantity.touched && sparesConsumablesForm.controls.quantity.errors }" [required]="true"-->
+                    <input pInputText formControlName="assignTotalPiece" class="form-control" required
+                        >
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Rate</label>
+                    <!-- [ngClass]="{ 'is-invalid  ng-dirty': sparesConsumablesForm.controls.quantity.touched && sparesConsumablesForm.controls.quantity.errors }" [required]="true" -->
+                    <input pInputText formControlName="workRatePerPiece" class="form-control" required
+                        >
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="btnWrap">
+        <!--  -->
+        <button mat-button color="secondary" (click)="cancel()">Cancel</button>
+        <!-- (click)="addSparesConsumables()" -->
+        <button mat-button color="primary" (click)="save()">Submit</button>
+    </div>
+</mat-dialog-actions>

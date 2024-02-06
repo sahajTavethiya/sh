@@ -1,0 +1,26 @@
+<div>
+    <div class="mat-dialog-title" >Customer Signature Upload</div>
+    <mat-dialog-content>
+        <form *ngIf="UploadCustomerSignatureForm" [formGroup]="UploadCustomerSignatureForm" class="formWrap">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Customer Signature File<span class="mandatoryField">*</span></label>
+                        <input type="file" formControlName="signature" class="form-control" required accept="image/png, image/gif, image/jpeg" [ngClass]="{ 'is-invalid  ng-dirty': UploadCustomerSignatureForm.controls.signature.touched && UploadCustomerSignatureForm.controls.signature.errors }" [required]="true" id="file" (change)="handleFileInput($event)">
+                    </div>
+                </div>
+            
+                <div class="col-6" *ngIf="fileToUpload">
+                    <div class="form-group">
+                        <img [src]="fileToUpload" height="150" width="200px" style="margin: 3px;">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <div class="btnWrap">
+            <button mat-button color="secondary" (click)="cancel()">Cancel</button>
+            <button mat-button color="primary" (click)="addTaskType()">Submit</button>
+        </div>
+    </mat-dialog-actions>

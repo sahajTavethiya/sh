@@ -1,0 +1,26 @@
+<!-- <div class="content-wrapper"> -->
+<app-loader></app-loader>
+<div class="header row">
+  <div class="header-left col-md-6">
+    <button mat-icon-button (click)="snav.toggle()" *ngIf="userName">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img src="assets/images/logo.png" title="Logo" class="brand-logo" height="48">
+  </div>
+  <div class="col-md-6">
+    <app-header></app-header>
+  </div>
+</div>
+<div class="midArea">
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav mode='over' fixedTopGap="56">
+        <app-menu></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="midContainer">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+</div>
+<app-footer></app-footer>
