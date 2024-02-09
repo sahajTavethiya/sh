@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+<<<<<<< HEAD
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve",
+=======
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve ",
+>>>>>>> 369858f19d00123ece42457a6258b4a7da53d8ce
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
